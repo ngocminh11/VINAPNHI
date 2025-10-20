@@ -17,7 +17,7 @@
     [id]{ scroll-margin-top: calc(var(--header-h) + 8px) }
     body{ color:var(--text); background:#fff; overflow-x:hidden }
 
-    /* ===== HEADER ===== */
+    /* ===== HEADER (glass refined) ===== */
     .hdr{
       position:sticky; top:0; z-index:1100;
       backdrop-filter:saturate(130%) blur(10px);
@@ -26,7 +26,7 @@
       transition:box-shadow .25s, background .25s, border-color .25s;
     }
     .hdr.scrolled{ background:rgba(255,255,255,.97); box-shadow:0 6px 18px rgba(0,0,0,.06); border-color:rgba(30,155,90,.16) }
-    .hdr .container{ gap:1rem } /* giảm “phình” khoảng cách */
+    .hdr .container{ gap:1rem }
 
     .brand-wrap{ display:flex; align-items:center; gap:.7rem; text-decoration:none; white-space:nowrap }
     .brand-mark{
@@ -63,7 +63,7 @@
     .hotline svg{ width:18px; height:18px; color:currentColor }
     .hotline:hover{ color:#fff; background:var(--green); border-color:var(--green); transform:translateY(-1px); box-shadow:0 10px 20px rgba(19,124,71,.22) }
 
-    /* MOBILE NAV */
+    /* ===== MOBILE NAV ===== */
     .navbtn{ display:inline-flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:12px; border:1px solid #e2efe7; background:#fff }
     .hamb{ position:relative; width:22px; height:14px }
     .hamb span{ position:absolute; left:0; width:100%; height:2px; background:#1b2a23; transition: transform .25s, opacity .2s, top .25s }
@@ -82,8 +82,7 @@
 
     /* ===== HERO ===== */
     .hero-full{
-      position:relative;
-      min-height: calc(100dvh - var(--header-h)); /* FIX: không “dư” so với viewport */
+      position:relative; min-height: calc(100dvh - var(--header-h));
       background:center/cover no-repeat fixed; color:#fff; text-align:center;
       display:flex; align-items:center; justify-content:center; text-shadow:0 2px 10px rgba(0,0,0,.4)
     }
@@ -91,7 +90,6 @@
     .hero-inner{ position:relative; z-index:2; padding:0 16px }
     .hero-title{ font-size:clamp(42px,6vw,82px); font-weight:900; line-height:1.05 }
     .hero-sub{ font-size:clamp(18px,2.2vw,24px); opacity:.95 }
-
     .scroll-cue{
       position:absolute; left:50%; bottom:18px; transform:translateX(-50%);
       width:40px; height:40px; border-radius:999px; border:2px solid rgba(255,255,255,.9);
@@ -118,23 +116,38 @@
     .ripple.is-anim::after{ animation:ripple .6s ease-out }
     @keyframes ripple{ 0%{ width:0; height:0; opacity:.5 } 100%{ width:360px; height:360px; opacity:0 } }
 
-    footer{ background:var(--green-3); border-top:1px solid #dce8e1; padding:2rem 0 }
+    /* ===== Services grid (5 ô đẹp, không bẻ chữ) ===== */
+    .services-grid{ display:grid; grid-template-columns: repeat(5, minmax(220px,1fr)); gap:24px }
+    @media (max-width:1200px){ .services-grid{ grid-template-columns: repeat(3, minmax(220px,1fr)) } }
+    @media (max-width:768px){  .services-grid{ grid-template-columns: repeat(2, minmax(200px,1fr)) } }
+    @media (max-width:460px){  .services-grid{ grid-template-columns: 1fr } }
 
-    @media (max-width:1200px){ .brand-tag{ display:none } .hotline{ display:none } } /* FIX: tránh menu xuống dòng */
-    @media (max-width: 991px){ .navdesk{ display:none !important } .hdr .right-tools{ gap:.4rem } }
+    .service-card{
+      display:flex; align-items:flex-start; gap:14px;
+      padding:22px; border-radius:18px;
+      background:#fff; border:1px solid #e9f0ea; box-shadow: var(--shadow);
+      transition: transform .25s, box-shadow .25s, border-color .25s;
+      text-decoration:none; color:inherit;
+    }
+    .service-card:hover{ transform:translateY(-6px); box-shadow:0 20px 40px rgba(30,155,90,.16); border-color:#d7efe2 }
+    .service-ico{ flex:0 0 auto; width:48px; height:48px; border-radius:999px; display:grid; place-items:center; background:#f2fbf6 }
+    .service-ico svg{ width:24px; height:24px; color:var(--green) }
+    .service-title{ font-weight:800; font-size:1.05rem; line-height:1.25; word-break:keep-all; overflow-wrap:break-word; hyphens:none; margin-bottom:4px }
+    .service-desc{ color:#6a7a72; font-size:.95rem; line-height:1.35; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden }
+
+    /* ===== Footer tidy ===== */
+    .i{ width:20px; height:20px; color:var(--green); vertical-align:-3px; margin-right:8px }
+    .footer{ background:#edf8f1; border-top:1px solid #dbece3; padding:2.2rem 0 }
+    .footer .meta{ color:#3b4a40; font-size:.95rem }
+    .footer .grid{ display:grid; gap:1rem; align-items:start }
+    @media (min-width:768px){ .footer .grid{ grid-template-columns: 1fr 1fr 1fr } }
+    .footer .item{ display:flex; align-items:flex-start; gap:.75rem }
+    .footer .small-note{ color:#5a6a60; font-size:.9rem }
+
+    @media (max-width:1200px){ .brand-tag{ display:none } .hotline{ display:none } } /* tránh menu rớt dòng */
+    @media (max-width: 991px){ .navdesk{ display:none !important } }
     @media (min-width: 992px){ .navbtn{ display:none } }
     @media (prefers-reduced-motion:reduce){ *{ transition:none!important; animation:none!important } }
-
-    /* --- Footer fix --- */
-.i{ width:20px; height:20px; color:var(--green); vertical-align:-3px; margin-right:8px }
-.footer{ background:#edf8f1; border-top:1px solid #dbece3; padding:2.2rem 0 }
-.footer .meta{ color:#3b4a40; font-size:.95rem }
-.footer .grid{ display:grid; gap:1rem; align-items:start }
-@media (min-width:768px){ .footer .grid{ grid-template-columns: 1fr 1fr 1fr } }
-.footer .item{ display:flex; align-items:flex-start; gap:.75rem }
-.footer .item svg{ flex:0 0 auto }
-.footer .small-note{ color:#5a6a60; font-size:.9rem }
-
   </style>
 </head>
 <body>
@@ -199,27 +212,12 @@
 
 <footer class="footer">
   <div class="container">
-    <div class="text-center fw-bold mb-3">
-      {{ config('site.company.full_name') }}
-    </div>
-
+    <div class="text-center fw-bold mb-3">{{ config('site.company.full_name') }}</div>
     <div class="grid mb-3">
-      <div class="item">
-        <svg class="i"><use href="#icon-map"/></svg>
-        <div class="meta">{{ config('site.company.address') }}</div>
-      </div>
-
-      <div class="item">
-        <svg class="i"><use href="#icon-phone"/></svg>
-        <div class="meta">{{ config('site.company.phone') }}</div>
-      </div>
-
-      <div class="item">
-        <svg class="i"><use href="#icon-mail"/></svg>
-        <div class="meta">{{ config('site.company.email') }} · {{ config('site.company.website') }}</div>
-      </div>
+      <div class="item"><svg class="i"><use href="#icon-map"/></svg><div class="meta">{{ config('site.company.address') }}</div></div>
+      <div class="item"><svg class="i"><use href="#icon-phone"/></svg><div class="meta">{{ config('site.company.phone') }}</div></div>
+      <div class="item"><svg class="i"><use href="#icon-mail"/></svg><div class="meta">{{ config('site.company.email') }} · {{ config('site.company.website') }}</div></div>
     </div>
-
     <div class="text-center small-note">
       <div>{{ config('site.company.license') }}</div>
       <div>{{ config('site.company.copyright') }}</div>
@@ -229,20 +227,20 @@
 </footer>
 
 <script>
-  // Header shadow + header height var
+  // header height + shadow
   const headerEl = document.getElementById('header');
   const setHH = () => document.documentElement.style.setProperty('--header-h', (headerEl?.offsetHeight || 72) + 'px');
   addEventListener('scroll', ()=> headerEl.classList.toggle('scrolled', scrollY>40));
   addEventListener('load', setHH); addEventListener('resize', setHH); setTimeout(setHH, 250);
   visualViewport?.addEventListener?.('resize', setHH);
 
-  // Reveal
+  // reveal
   const IO = new IntersectionObserver(es=>{
     es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); IO.unobserve(e.target); } });
   },{threshold:.15});
   document.querySelectorAll('[data-animate], .stagger').forEach(el=>IO.observe(el));
 
-  // Ripple
+  // ripple
   document.addEventListener('click', (e)=>{
     const t = e.target.closest('.ripple'); if(!t) return;
     const r = t.getBoundingClientRect(); const x = e.clientX - r.left; const y = e.clientY - r.top;
@@ -250,7 +248,7 @@
     t.classList.remove('is-anim'); void t.offsetWidth; t.classList.add('is-anim');
   });
 
-  // Mobile menu
+  // mobile menu
   const navToggle = document.getElementById('navToggle');
   const navmob = document.getElementById('navmob');
   const shade = document.getElementById('navshade');
@@ -260,7 +258,7 @@
   shade?.addEventListener('click', closeNav);
   addEventListener('keydown', e=>{ if(e.key==='Escape') closeNav(); });
 
-  // Snap + auto-ẩn cue ngoài hero
+  // snap + ẩn cue ngoài hero
   (function(){
     const cue = document.getElementById('scrollCue');
     const hero = document.querySelector('.hero-full');
@@ -270,7 +268,6 @@
     const snap = ()=> target.scrollIntoView({ behavior:'smooth', block:'start' });
     cue.addEventListener('click', snap);
 
-    // Ẩn cue khi rời hero (hết hiện “trôi” sang section dưới)
     const CUEIO = new IntersectionObserver(es=>{
       es.forEach(e=>{
         const v = e.isIntersecting;
@@ -280,7 +277,6 @@
     },{threshold:0.1});
     CUEIO.observe(hero);
 
-    // Lần kéo đầu tiên từ hero thì snap
     let armed = true, startY = null;
     const arm = ()=> armed = (scrollY < innerHeight*0.6);
     arm(); addEventListener('scroll', arm, { passive:true });
@@ -289,7 +285,7 @@
     addEventListener('touchmove', e=>{ if(!armed||startY===null) return; const dy = startY - (e.touches?.[0]?.clientY ?? startY); if(dy>14){ snap(); armed=false; } }, { passive:true });
   })();
 
-  // Fallback ảnh
+  // fallback ảnh
   addEventListener('error', function(e){
     const el = e.target;
     if (el.tagName === 'IMG' && el.dataset.fallback && el.src !== location.origin + el.dataset.fallback) {

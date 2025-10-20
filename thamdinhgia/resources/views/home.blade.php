@@ -3,7 +3,6 @@
 @section('content')
 @php
   use Illuminate\Support\Facades\File;
-  // Hero background: nếu có hero-big.jpg dùng, không thì dùng placeholder
   $heroUrl = File::exists(public_path('images/hero-big.jpg'))
               ? asset('images/hero-big.jpg')
               : (File::exists(public_path('images/placeholder-hero.jpg'))
@@ -23,30 +22,50 @@
   </button>
 </section>
 
-{{-- THÔNG TIN CHÍNH (điểm neo để snap) --}}
+{{-- DỊCH VỤ NỔI BẬT (5 ô) --}}
 <section id="info-start" class="container my-5" data-animate>
   <div class="section-title mb-3">Dịch vụ nổi bật</div>
-  <div class="row g-4 stagger">
-    @foreach(config('site.services_top') as $s)
-      <div class="col-12 col-md-6 col-lg-3">
-        <a href="{{ $s['url'] }}" class="text-decoration-none text-dark">
-          <div class="card-lite p-3 h-100 ripple">
-            <div class="d-flex align-items-start gap-3">
-              <div class="rounded-circle p-3" style="background:#f2fbf6">
-                {{-- icon SVG sprite theo 'icon' trong config: home/gear/briefcase/chart --}}
-                <svg class="i i-lg" aria-hidden="true">
-                  <use href="#icon-{{ $s['icon'] ?? 'home' }}"/>
-                </svg>
-              </div>
-              <div>
-                <div class="fw-bold">{{ $s['title'] }}</div>
-                <div class="text-muted">{{ $s['desc'] }}</div>
-              </div>
-            </div>
-          </div>
-        </a>
+
+  <div class="services-grid stagger">
+    <a href="#contact" class="service-card ripple">
+      <div class="service-ico"><svg><use href="#icon-home"/></svg></div>
+      <div>
+        <div class="service-title">Thẩm định giá</div>
+        <div class="service-desc">BĐS, TSCĐ, doanh nghiệp</div>
       </div>
-    @endforeach
+    </a>
+
+    <a href="#contact" class="service-card ripple">
+      <div class="service-ico"><svg><use href="#icon-briefcase"/></svg></div>
+      <div>
+        <div class="service-title">Đấu giá BĐS - Tài sản</div>
+        <div class="service-desc">Minh bạch, thủ tục nhanh</div>
+      </div>
+    </a>
+
+    <a href="#contact" class="service-card ripple">
+      <div class="service-ico"><svg><use href="#icon-gear"/></svg></div>
+      <div>
+        <div class="service-title">Tư vấn chuyển dự án</div>
+        <div class="service-desc">M&A, pháp lý, cấu trúc giao dịch</div>
+      </div>
+    </a>
+
+    <a href="#contact" class="service-card ripple">
+      <div class="service-ico"><svg><use href="#icon-chart"/></svg></div>
+      <div>
+        <div class="service-title">Tư vấn đầu tư - Tư vấn BĐS</div>
+        <div class="service-desc">Chiến lược, tài chính, phát triển</div>
+      </div>
+    </a>
+
+    <a href="#contact" class="service-card ripple">
+      <div class="service-ico"><svg><use href="#icon-map"/></svg></div>
+      <div>
+        <div class="service-title">Nghiên cứu thị trường</div>
+        <div class="service-desc">Dữ liệu giá, xu hướng, báo cáo</div>
+      </div>
+    </a>
   </div>
 </section>
 
