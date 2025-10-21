@@ -3,69 +3,58 @@
 @section('content')
 @php
   use Illuminate\Support\Facades\File;
-  $heroUrl = File::exists(public_path('images/hero-big.jpg'))
+  // Hero: dùng ảnh featured đầu nếu có, hoặc placeholder
+  $firstTile = config('site.home.serviceTiles')[0]['img'] ?? null;
+  $heroUrl = $firstTile ?: (File::exists(public_path('images/hero-big.jpg'))
               ? asset('images/hero-big.jpg')
               : (File::exists(public_path('images/placeholder-hero.jpg'))
                     ? asset('images/placeholder-hero.jpg')
-                    : asset('images/placeholder-hero.svg'));
+                    : asset('images/placeholder-hero.svg')));
 @endphp
 
-{{-- BANNER FULL --}}
+{{-- HERO --}}
 <section class="hero-full" style="background-image:url('{{ $heroUrl }}')">
   <div class="hero-inner" data-animate>
-    <h1 class="hero-title">{{ config('site.brand.name') }}</h1>
-    <p class="hero-sub">{{ config('site.brand.tagline') }}</p>
-    <a href="#info-start" class="btn btn-success mt-3 ripple">Bắt đầu khám phá</a>
+    <h1 class="hero-title">VINAP</h1>
+    <p class="hero-sub">Chuyên Nghiệp - Minh Bạch - Chính Xác - Khách Quan</p>
+    <a href="#info-start" class="btn btn-success mt-3">Bắt đầu khám phá</a>
   </div>
   <button id="scrollCue" class="scroll-cue" aria-label="Cuộn xuống">
     <svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
   </button>
 </section>
 
-{{-- DỊCH VỤ NỔI BẬT (5 ô) --}}
+{{-- DỊCH VỤ NỔI BẬT --}}
 <section id="info-start" class="container my-5" data-animate>
   <div class="section-title mb-3">Dịch vụ nổi bật</div>
-
   <div class="services-grid stagger">
-    <a href="#contact" class="service-card ripple">
-      <div class="service-ico"><svg><use href="#icon-home"/></svg></div>
-      <div>
-        <div class="service-title">Thẩm định giá</div>
-        <div class="service-desc">BĐS, TSCĐ, doanh nghiệp</div>
-      </div>
-    </a>
-
-    <a href="#contact" class="service-card ripple">
-      <div class="service-ico"><svg><use href="#icon-briefcase"/></svg></div>
-      <div>
-        <div class="service-title">Đấu giá BĐS - Tài sản</div>
-        <div class="service-desc">Minh bạch, thủ tục nhanh</div>
-      </div>
-    </a>
-
-    <a href="#contact" class="service-card ripple">
-      <div class="service-ico"><svg><use href="#icon-gear"/></svg></div>
-      <div>
-        <div class="service-title">Tư vấn chuyển dự án</div>
-        <div class="service-desc">M&A, pháp lý, cấu trúc giao dịch</div>
-      </div>
-    </a>
-
-    <a href="#contact" class="service-card ripple">
-      <div class="service-ico"><svg><use href="#icon-chart"/></svg></div>
-      <div>
-        <div class="service-title">Tư vấn đầu tư - Tư vấn BĐS</div>
-        <div class="service-desc">Chiến lược, tài chính, phát triển</div>
-      </div>
-    </a>
-
-    <a href="#contact" class="service-card ripple">
-      <div class="service-ico"><svg><use href="#icon-map"/></svg></div>
-      <div>
-        <div class="service-title">Nghiên cứu thị trường</div>
-        <div class="service-desc">Dữ liệu giá, xu hướng, báo cáo</div>
-      </div>
-    </a>
+    @php
+      // map icon theo keyword
+      $iconMap = [
+        'thẩm định' => 'home',
+        'đấu giá' => 'briefcase',
+        'chuyển' => 'gear',
+        'tư vấn đầu tư' => 'chart',
+        'bđs' => 'chart',
+        'nghiên cứu' => 'map',
+        'thị trường' => 'map',
+      ];
+      $tiles = config('site.home.serviceTiles') ?? [];
+    @endphp
+    @foreach($tiles as $t)
+      @php
+        $title = $t['title'] ?? 'Dịch vụ';
+        $icon = 'home';
+        foreach($iconMap as $k=>$i){ if(mb_stripos($title,$k)!==false){ $icon=$i; break; } }
+      @endphp
+      <a href="#contact" class="service-card">
+        <div class="service-ico"><svg><use href="#icon-{{ $icon }}"/></svg></div>
+        <div>
+          <div class="service-title">{{ $title }}</div>
+          <div class="service-desc">{{ $t['desc'] ?? ($t['hint'] ?? 'Giải pháp nhanh, chuẩn, minh bạch') }}</div>
+        </div>
+      </a>
+    @endforeach
   </div>
 </section>
 
@@ -75,54 +64,50 @@
     <div class="col-lg-8">
       <div class="section-title mb-3" data-animate>Hoạt động công ty</div>
       <div class="list-group mb-4">
-        @foreach(config('site.activities') as $a)
+        @foreach(config('site.home.companyActivities') as $a)
           @php
-            $thumb = ltrim($a['thumb'] ?? '', '/');
-            $thumb = \Illuminate\Support\Facades\File::exists(public_path($thumb)) ? '/'.$thumb : '/images/placeholder-thumb.svg';
+            $src = $a['img'] ?? '';
+            $bad = str_starts_with($src,'httpsum'); // bạn gõ sai domain
+            $thumb = $bad ? '' : $src;
           @endphp
-          <a href="{{ $a['url'] }}" class="list-group-item list-group-item-action" data-animate>
+          <div class="list-group-item" data-animate>
             <div class="d-flex gap-3">
-              <img src="{{ $thumb }}" data-fallback="/images/placeholder-thumb.svg"
-                   alt="" style="width:64px;height:64px;object-fit:cover;border-radius:10px">
+              <img src="{{ $thumb }}" data-fallback="/images/placeholder-thumb.svg" alt=""
+                   style="width:84px;height:64px;object-fit:cover;border-radius:10px">
               <div>
                 <div class="fw-bold">{{ $a['title'] }}</div>
-                <div class="text-muted small">{{ $a['excerpt'] }} <span class="text-decoration-underline">Xem tiếp</span></div>
+                <div class="text-muted small">{{ $a['desc'] }}</div>
+                <div class="small text-muted mt-1">{{ $a['date'] ?? '' }}</div>
               </div>
             </div>
-          </a>
+          </div>
         @endforeach
       </div>
 
       <div class="section-title mb-3" id="news" data-animate>Tin tức</div>
       <div class="list-group">
-        @foreach(config('site.news') as $n)
-          <a href="{{ $n['url'] }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" data-animate>
+        @foreach(config('site.home.news') as $n)
+          <div class="list-group-item d-flex justify-content-between align-items-center" data-animate>
             <span>{{ $n['title'] }}</span>
             <span class="text-muted small">{{ $n['date'] }}</span>
-          </a>
+          </div>
         @endforeach
       </div>
     </div>
 
     <aside class="col-lg-4">
-      @php
-        $sd = config('site.service_done');
-        $sdImg = ltrim($sd['image'] ?? '', '/');
-        $sdImg = \Illuminate\Support\Facades\File::exists(public_path($sdImg)) ? '/'.$sdImg : '/images/placeholder-thumb.svg';
-      @endphp
-
       <div class="section-title mb-3" data-animate>Dịch vụ đã thực hiện</div>
       <div class="card-lite p-0 mb-4" data-animate>
-        <img src="{{ $sdImg }}" data-fallback="/images/placeholder-thumb.svg"
-             alt="" class="w-100" style="height:220px;object-fit:cover">
-        <div class="p-3">{{ $sd['caption'] ?? '' }}</div>
+        @php $done = config('site.home.deliveredServices')[0] ?? null; @endphp
+        <img src="{{ $done['img'] ?? '' }}" data-fallback="/images/placeholder-thumb.svg" alt="" class="w-100" style="height:220px;object-fit:cover">
+        <div class="p-3">{{ $done['caption'] ?? '' }}</div>
       </div>
 
       <div class="section-title mb-3" data-animate>Văn bản pháp luật</div>
       <div class="card-lite p-3 mb-4" data-animate>
         <ul class="list-unstyled m-0">
-          @foreach(config('site.legal_docs') as $doc)
-            <li class="mb-2"><a href="{{ $doc['url'] }}" class="text-decoration-none">{{ $doc['title'] }}</a></li>
+          @foreach(config('site.laws') as $law)
+            <li class="mb-2">{{ $law }}</li>
           @endforeach
         </ul>
       </div>
@@ -130,8 +115,8 @@
       <div class="section-title mb-3" data-animate>Liên kết web</div>
       <div class="card-lite p-3" data-animate>
         <ul class="list-unstyled m-0">
-          @foreach(config('site.web_links') as $link)
-            <li class="mb-2"><a href="{{ $link['url'] }}" class="text-decoration-none">{{ $link['title'] }}</a></li>
+          @foreach(config('site.links') as $link)
+            <li class="mb-2"><a href="{{ $link['href'] }}" class="text-decoration-none" target="_blank" rel="noopener">{{ $link['label'] }}</a></li>
           @endforeach
         </ul>
       </div>
@@ -139,49 +124,39 @@
   </div>
 </section>
 
-{{-- KHÁCH HÀNG --}}
+{{-- KHÁCH HÀNG / CASES --}}
 <section id="customer" class="container mb-5" data-animate>
   <div class="section-title mb-3">Khách hàng & dự án tiêu biểu</div>
   <div class="row g-4 stagger">
-    @foreach(config('site.cases') as $c)
-      @php
-        $logo = ltrim($c['logo'] ?? '', '/');
-        $logo = \Illuminate\Support\Facades\File::exists(public_path($logo)) ? '/'.$logo : '/images/placeholder-logo.svg';
-      @endphp
-      <div class="col-6 col-md-3">
-        <div class="card-lite p-3 d-flex align-items-center justify-content-center" style="height:110px">
-          <img src="{{ $logo }}" data-fallback="/images/placeholder-logo.svg"
-               alt="{{ $c['name'] ?? 'Khách hàng' }}" style="max-height:60px;object-fit:contain">
+    @foreach(config('site.home.cases') as $c)
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card-lite overflow-hidden h-100">
+          <img src="{{ $c['img'] }}" data-fallback="/images/placeholder-thumb.svg" alt="" class="w-100" style="height:180px;object-fit:cover">
+          <div class="p-3">
+            <div class="small text-success fw-bold mb-1">{{ $c['tag'] }}</div>
+            <div class="fw-bold">{{ $c['title'] }}</div>
+          </div>
         </div>
       </div>
     @endforeach
   </div>
 </section>
 
-{{-- BÁO GIÁ --}}
-<section id="pricing" class="container mb-5" data-animate>
-  <div class="section-title mb-3">Báo giá tham khảo</div>
-  <div class="card-lite p-4">
-    <ul class="mb-2">
-      <li>BĐS nhà ở đô thị: <strong>1.5–3 triệu</strong>/chứng thư</li>
-      <li>Dự án/đặc thù: báo giá theo quy mô khảo sát</li>
-      <li>Máy móc thiết bị: tùy loại tài sản</li>
-    </ul>
-    <div class="text-muted">{{ config('site.pricing_note') }}</div>
-  </div>
-</section>
-
 {{-- LIÊN HỆ --}}
 <section id="contact" class="container mb-5" data-animate>
-  <div class="section-title mb-3">Liên hệ {{ config('site.brand.name') }}</div>
+  <div class="section-title mb-3">Liên hệ VINAP</div>
   <div class="card-lite p-4">
     <div class="row g-3">
       <div class="col-md-6"><input class="form-control" placeholder="Họ tên"></div>
       <div class="col-md-6"><input class="form-control" placeholder="Số điện thoại"></div>
       <div class="col-12"><input class="form-control" placeholder="Nội dung cần thẩm định"></div>
-      <div class="col-12"><button class="btn btn-success ripple">Gửi yêu cầu</button></div>
+      <div class="col-12"><button class="btn btn-success">Gửi yêu cầu</button></div>
     </div>
     <div class="small text-muted mt-2">Form minh họa, không lưu dữ liệu.</div>
+
+    <div class="ratio ratio-21x9 mt-3">
+      <iframe src="{{ config('site.contact_map_embed') }}" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    </div>
   </div>
 </section>
 @endsection
