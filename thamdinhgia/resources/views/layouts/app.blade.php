@@ -156,14 +156,14 @@
   <div class="container">
     <div class="text-center fw-bold mb-3">Công ty CP Thẩm định giá & Tư vấn Đầu tư Việt Nam - VINAP</div>
     <div class="grid mb-3">
-      <div class="item"><svg class="i"><use href="#icon-map"/></svg><div class="meta">Số 8/1, đường số 4, KDC Nam Long, P.An Phú, TP.Thủ Đức, TP.HCM</div></div>
-      <div class="item"><svg class="i"><use href="#icon-phone"/></svg><div class="meta">(84.8) 37156868 · 1900 1234</div></div>
-      <div class="item"><svg class="i"><use href="#icon-mail"/></svg><div class="meta">contact@vinap.vn · www.vinap.vn</div></div>
+      <div class="item"><svg class="i"><use href="#icon-map"/></svg>
+      <div class="meta">Khu biệt thự Nine South - Nhà số 9, đường số 7, Khu dân cư Vina Nam Phú, Nhà Bè, Thành phố Hồ Chí Minh, Việt Nam</div></div>
+      <div class="item"><svg class="i"><use href="#icon-phone"/></svg><div class="meta">(+84.028)39330833 ·  (+84) 917168816</div></div>
+      <div class="item"><svg class="i"><use href="#icon-mail"/></svg><div class="meta">hanh.tran@vinap.vn · www.vinap.vn</div></div>
     </div>
     <div class="text-center small-note">
-      <div>Giấy CN ĐKDN: 0301234567</div>
       <div>© 2025 VINAP. All rights reserved.</div>
-      <div>Thiết kế bởi NTVC</div>
+      <div>Thiết kế bởi YenNhi</div>
     </div>
   </div>
 </footer>

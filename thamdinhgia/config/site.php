@@ -147,417 +147,421 @@ return [
 
     // Trang Hồ sơ năng lực
     'capacity' => [
-        'hr' => [
-            ['vi' => 'Số nhân viên có trình độ Cao học: 7 người.', 'en' => 'Master Degree: Seven individuals.'],
-            ['vi' => 'Tỷ lệ nhân sự có trình độ Đại học: 100%.', 'en' => 'University level: One hundred percent.'],
-            ['vi' => 'Thẻ Thẩm định viên về giá: 5 người.', 'en' => 'Valuer Certificate: Five individuals.'],
-            ['vi' => 'Chứng chỉ định giá đất: 1 người.', 'en' => 'Land valuation certificate: One individual.'],
-            ['vi' => 'Chứng chỉ đấu giá viên: 1 người.', 'en' => 'Auction certificate: One individual.'],
-            ['vi' => 'Chứng chỉ quản lý giao dịch BĐS: 2 người.', 'en' => 'Managing real estate transaction certificate: Two individuals.'],
-            ['vi' => 'Chứng chỉ định giá bất động sản: 1 người.', 'en' => 'Estate appraisal certificate: One individual.'],
+    'hr' => [
+        ['vi' => 'Số nhân viên có trình độ Cao học trở lên: 7 người.', 'en' => 'Master Degree: Seven individuals'],
+        ['vi' => 'Số nhân viên có trình độ Đại học: 100%.', 'en' => 'University level: One hundred percent'],
+        ['vi' => 'Thẻ Thẩm định viên về giá: 5 người.', 'en' => 'Valuer Certificate: Five individuals'],
+        ['vi' => 'Chứng chỉ hành nghề đấu giá: 1 người.', 'en' => 'Auction certificate: One individual'],
+        ['vi' => 'Chứng chỉ môi giới bất động sản: 2 người.', 'en' => 'Estate Agent Appraisal certificate: Two individuals'],
+        ['vi' => 'Chứng chỉ định giá đất: 9 người.', 'en' => 'Land valuation certificate: Nine individuals'],
+    ],
+
+    'team' => [
+        // 1 — Tăng Hùng Dũng
+        [
+            'name' => 'Tăng Hùng Dũng',
+            'role_vi' => 'Giám Đốc',
+            'role_en' => 'Director',
+            'certs' => [
+                'Mã số thẻ TĐV: <strong>IX14.1080</strong> (Valuer Certificate No: IX14.1080, signed by Minister of Finance)',
+                'Chứng chỉ Định giá đất số: <strong>04080119</strong> (Land valuation certificate number 04080119, issued by MONRE)',
+            ],
+            'edu_vi' => [
+                'Trình độ chuyên môn nghiệp vụ: Cử nhân Tài chính Kế Toán Doanh nghiệp',
+            ],
+            'edu_en' => [
+                'Professional ability: Bachelor of Corporate Accounting Finance',
+            ],
+            'exp_vi' => [
+                'Nguyên Phó Giám đốc Sở Tài Chính Tỉnh Kiên Giang.',
+                'Kế toán văn phòng UBND Huyện Thới Bình Tỉnh Cà Mau.',
+                'Phó văn phòng Liên hiệp Công Đoàn Tỉnh Kiên Giang.',
+                'Chánh văn phòng Huyện ủy Châu Thành Tỉnh Kiên Giang.',
+                'Trưởng phòng quản lý xí nghiệp cấp Huyện tại Chi cục thu quốc doanh Sở Tài Chính Tỉnh Kiên Giang.',
+                'Chánh văn phòng Trưởng phòng Quản lý giá Công sản tại Sở Tài Chính Tỉnh Kiên Giang.',
+                'Phó Giám Đốc tại Sở Tài Chính Kiên Giang.',
+                'Cố vấn của Tổng Giám Đốc Công ty Cổ phần Thông tin và Thẩm định giá Miền Nam (SIVC).',
+            ],
+            'exp_en' => [
+                'Former Vice Director, Department of Finance, Kien Giang province.',
+                'Accountant at People’s Committee of Thoi Binh District, Ca Mau Province.',
+                'Deputy Chief of Office at Kien Giang Union.',
+                'Chief of Office at People’s Committee of Chau Thanh District, Kien Giang province.',
+                'Chief of Office at the Management District region at Department of Finance, Kien Giang province.',
+                'Chief of Office at Price Management at Department of Finance, Kien Giang province.',
+                'Vice Director at Department of Finance, Kien Giang province.',
+                'Consultant for General Director at Southern Information and Valuation Corporation (SIVC).',
+            ],
+            'years' => '48 years',
         ],
-        'team' => [
-            // 1
-            [
-                'name' => 'Tăng Hùng Dũng',
-                'role_vi' => 'Giám đốc',
-                'role_en' => 'Director',
-                'certs' => [
-                    'Mã số thẻ TĐV: <strong>IX14.1080</strong> (Valuer Certificate No: IX14.1080, signed by Minister of Finance)',
-                    'Chứng chỉ Định giá đất số: <strong>04080119</strong> (Land valuation certificate number 04080119, issued by MONRE)',
-                ],
-                'edu_vi' => [
-                    'Trình độ: Cử nhân Tài chính Kế toán Doanh nghiệp',
-                ],
-                'edu_en' => [
-                    'Professional ability: Bachelor of Corporate Accounting Finance',
-                ],
-                'exp_vi' => [
-                    'Nguyên Phó Giám đốc Sở Tài chính tỉnh Kiên Giang.',
-                    'Kế toán văn phòng UBND Huyện Thới Bình, tỉnh Cà Mau.',
-                    'Phó văn phòng Liên hiệp Công đoàn tỉnh Kiên Giang.',
-                    'Chánh văn phòng Huyện ủy Châu Thành, tỉnh Kiên Giang.',
-                    'Trưởng phòng quản lý xí nghiệp cấp huyện tại Chi cục Thu quốc doanh – Sở Tài chính Kiên Giang.',
-                    'Chánh văn phòng / Trưởng phòng Quản lý giá – Công sản tại Sở Tài chính Kiên Giang.',
-                    'Phó Giám đốc Sở Tài chính Kiên Giang.',
-                    'Cố vấn Tổng Giám đốc SIVC.',
-                ],
-                'exp_en' => [
-                    'Former Vice Director, Department of Finance, Kien Giang Province.',
-                    'Accountant at People’s Committee of Thoi Binh District, Ca Mau Province.',
-                    'Deputy Chief of Office at Kien Giang Union.',
-                    'Chief of Office at Chau Thanh District Party Committee, Kien Giang.',
-                    'Chief of Office, district enterprise management – Department of Finance, Kien Giang.',
-                    'Chief of Office / Head of Price & Public Assets Management – Department of Finance, Kien Giang.',
-                    'Vice Director, Department of Finance, Kien Giang.',
-                    'Consultant for General Director at SIVC.',
-                ],
-                'years' => '48 years',
-            ],
 
-            // 2
-            [
-                'name' => 'Tăng Thái Bích Toàn',
-                'role_vi' => 'Phó Giám đốc',
-                'role_en' => 'Deputy Director',
-                'certs' => [
-                    'Mã số thẻ TĐV: <strong>IX14.1209</strong> (Valuer Certificate No: IX14.1209, signed by Minister of Finance)',
-                    'Chứng chỉ Định giá đất: <strong>04110119</strong> (issued by MONRE)',
-                    'Chứng chỉ Đấu thầu cơ bản: <strong>040-DTCB11118/KHXD</strong>',
-                ],
-                'edu_vi' => [
-                    'Cử nhân Tài chính – Ngân hàng (UEH).',
-                    'Thạc sĩ Quản trị Kinh doanh (ĐH Tôn Đức Thắng).',
-                    'Nghiên cứu sinh Kinh tế học – UCSI Malaysia.',
-                ],
-                'edu_en' => [
-                    'Bachelor of Finance – Banking (UEH).',
-                    'MBA – Ton Duc Thang University.',
-                    'Postgraduate, Economics – UCSI University Malaysia.',
-                ],
-                'exp_vi' => [
-                    'Giám đốc Marketing, Trợ lý TGĐ SIVC (2012–2017).',
-                    'Giám đốc Phòng 7 SIVC (2012–2017).',
-                    'Giám đốc các Chi nhánh Kiên Giang / Thừa Thiên Huế / Đà Nẵng (2012–2017).',
-                    'Điều hành & quản lý VINAP (2017–nay).',
-                    'Chuyên gia về giá tại Sở Công Thương TP.HCM (2021–2022).',
-                    'Điều hành & quản lý GOLDEN VALUE (2023).',
-                ],
-                'exp_en' => [
-                    'Marketing Director, Assistant to GD at SIVC (2012–2017).',
-                    'Director of Dept. 7 – SIVC (2012–2017).',
-                    'Branch Director: Kien Giang / Thua Thien Hue / Da Nang (2012–2017).',
-                    'Operating & managing (owner) at VINAP (2017–present).',
-                    'Price expert at HCMC Department of Industry & Trade (2021–2022).',
-                    'Operating & managing GOLDEN VALUE (2023).',
-                ],
-                'years' => '16 years',
+        // 2 — Tăng Thái Bích Toàn
+        [
+            'name' => 'Tăng Thái Bích Toàn',
+            'role_vi' => 'Phó Giám đốc',
+            'role_en' => 'Deputy Director',
+            'certs' => [
+                'Mã số thẻ TĐV: <strong>IX14.1209</strong> (Valuer Certificate No: IX14.1209, signed by Minister of Finance)',
+                'Chứng chỉ Định giá đất số: <strong>04110119</strong> (Land valuation certificate number: 04110119, issued by MONRE)',
+                'Chứng chỉ Đào tạo Đấu thầu cơ bản số: <strong>040-DTCB11118/KHXD</strong>',
             ],
-
-            // 3
-            [
-                'name' => 'Nguyễn Thu Trang',
-                'role_vi' => 'Thẩm định viên',
-                'role_en' => 'Valuer',
-                'certs' => [
-                    'Mã số thẻ TĐV: <strong>XIII18.2076</strong> (Valuer Certificate No: XIII18.2076, signed by Ministry of Finance)',
-                ],
-                'edu_vi' => ['Cử nhân Mạng máy tính & Viễn thông'],
-                'edu_en' => ['Bachelor of Computer Networks and Telecommunications'],
-                'exp_vi' => [
-                    'Chuyên viên phòng mua bán – FPT Software (6/2006–8/2019).',
-                    'Thẩm định viên tại VINAP (9/2019–6/2022).',
-                ],
-                'exp_en' => [
-                    'Purchasing Department Specialist – FPT Software (Jun 2006–Aug 2019).',
-                    'Valuer at Vietnam Appraisal and Investment Consulting Corporation (Sep 2019–Jun 2022).',
-                ],
-                'years' => '20 years',
+            'edu_vi' => [
+                'Cử nhân Tài chính - Ngân hàng tại Đại học Kinh tế TP.HCM.',
+                'Thạc sĩ Quản trị kinh doanh Đại học Tôn Đức Thắng.',
+                'Nghiên cứu sinh - chuyên ngành Kinh tế học Trường Đại học UCSI Malaysia.',
             ],
-
-            // 4
-            [
-                'name' => 'Lê Văn Phi',
-                'role_vi' => 'Thẩm định viên',
-                'role_en' => 'Valuer',
-                'certs' => [
-                    'Mã số thẻ TĐV: <strong>XV23.2451</strong> (Valuer Certificate No: XV23.2451, signed by Ministry of Finance)',
-                ],
-                'edu_vi' => ['Chuyên môn nghiệp vụ: Kiểm toán'],
-                'edu_en' => ['Professional ability: Audit'],
-                'exp_vi' => [
-                    'Trợ lý kiểm toán tại KSI Việt Nam.',
-                    'Kiểm toán viên tại KSI Việt Nam.',
-                    'Kiểm toán viên tại Công ty TNHH Tri Thức Việt.',
-                    'Thẩm định viên tại VINAP.',
-                ],
-                'exp_en' => [
-                    'Audit Assistant at KSI Vietnam Auditing Company Limited.',
-                    'Auditor at KSI Vietnam Auditing Company Limited.',
-                    'Auditor at Tri Thuc Viet Company Limited.',
-                    'Valuer at Vietnam Appraisal and Investment Consulting Corporation.',
-                ],
-                'years' => '12 years',
+            'edu_en' => [
+                'Bachelor of Finance - Banking, University of Economics Ho Chi Minh City.',
+                'MBA, Ton Duc Thang University.',
+                'Postgraduate - majoring in Economics at UCSI University Malaysia.',
             ],
-
-            // 5
-            [
-                'name' => 'Tăng Thái Bích Thông',
-                'role_vi' => 'Thẩm định viên',
-                'role_en' => 'Valuer',
-                'certs' => [
-                    'Mã số thẻ TĐV: <strong>XIV19.2326</strong> (Valuer Certificate No: XIV19.2326, signed by Ministry of Finance)',
-                ],
-                'edu_vi' => [
-                    'Cử nhân Sư phạm Toán – ĐH Sư phạm TP.HCM.',
-                    'Thạc sĩ Quản trị Kinh doanh – Open University Malaysia.',
-                    'Nghiên cứu sinh Kinh tế học – UCSI Malaysia.',
-                ],
-                'edu_en' => [
-                    'Bachelor of Math – HCMC University of Pedagogy.',
-                    'MBA – Open University Malaysia.',
-                    'Postgraduate – majoring in Economics, UCSI University Malaysia.',
-                ],
-                'exp_vi' => [
-                    'Cán bộ Khoa Ngoại ngữ – CĐ Cộng đồng Kiên Giang.',
-                    'Chuyên viên thẩm định giá tại VINAP.',
-                    'Phó phòng Nhân sự tại VINAP.',
-                    'Giám đốc Tổ hợp tác quốc tế tại VINAP.',
-                ],
-                'exp_en' => [
-                    'Officer of Foreign Languages Department, Kien Giang Community College.',
-                    'Appraisal specialist at VINAP.',
-                    'Deputy of Administration – Human Resources Department, VINAP.',
-                    'Director of International Corporation Department, VINAP.',
-                ],
-                'years' => '14 years',
+            'exp_vi' => [
+                'Giám đốc Marketing, Trợ lý Tổng Giám đốc SIVC (2012 - 2017).',
+                'Giám đốc Phòng 7 (SIVC) (2012 – 2017).',
+                'Giám đốc Chi nhánh Kiên Giang / Thừa Thiên Huế / Đà Nẵng (2012 – 2017).',
+                'Điều hành và quản lý (chủ sở hữu) tại VINAP (2017 đến nay).',
+                'Chuyên gia về giá tại Sở Công nghiệp và Thương mại TP.HCM (2021-2022).',
+                'Điều hành và quản lý ở GOLDEN VALUE (2023).',
             ],
-
-            // 6
-            [
-                'name' => 'Lưu Thị Ngà',
-                'role_vi' => 'Thẩm định viên',
-                'role_en' => 'Valuer',
-                'certs' => [
-                    'Mã số thẻ TĐV: <strong>XIV19.2228</strong> (Valuer Certificate No: XIV19.2228, signed by Ministry of Finance)',
-                ],
-                'edu_vi' => [
-                    'Cử nhân Quản trị kinh doanh – chuyên ngành Thẩm định giá (ĐH Tài chính – Marketing).',
-                ],
-                'edu_en' => [
-                    'Bachelor of Business Administration, Valuation major – University of Finance and Marketing.',
-                ],
-                'exp_vi' => [
-                    'Nhân viên kế toán – Nam Việt (12/2019–7/2020).',
-                    'Nhân viên kinh doanh – Folexpharm.',
-                    'Thẩm định viên tại VINAP.',
-                ],
-                'exp_en' => [
-                    'Accounting staff – Nam Viet Trading Co., Ltd (Dec 2019–Jul 2020).',
-                    'Sales staff – Folexpharm Pharmaceutical JSC.',
-                    'Valuer at Vietnam Appraisal and Investment Consulting Corporation.',
-                ],
-                'years' => '12 years',
+            'exp_en' => [
+                'Marketing Director, Assistant to General Director at SIVC (2012–2017).',
+                'Director at Department 7 (SIVC) (2012–2017).',
+                'Director at branches Kien Giang / Thua Thien Hue / Da Nang (2012–2017).',
+                'Operating and managing company (owner) at VINAP (2017–present).',
+                'Price expert at Ho Chi Minh City Department of Industry and Trade (2021–2022).',
+                'Operating and managing at GOLDEN VALUE (2023).',
             ],
+            'years' => '16 years',
+        ],
 
-            // 7
-            [
-                'name' => 'Huỳnh Quốc Chiến',
-                'role_vi' => 'Giám đốc Chi nhánh Trà Vinh',
-                'role_en' => 'Director – Tra Vinh branch',
-                'certs' => [
-                    'Estate Agent certificate – <strong>No 0004TV</strong>.',
-                    'Estate Agent Appraisal certificate.',
-                    'Managing and controlling Real estate transaction certificate.',
-                    'Auction certificate – <strong>No 1228/TP-ĐG/CCHN</strong>.',
-                    'Construction project quality accreditation certificate.',
-                    'Construction project estimation certificate.',
-                ],
-                'edu_vi' => [
-                    'Cử nhân Kinh tế – Kiểm toán (UEH).',
-                    'Kỹ sư Công nghệ Hóa – ĐH Bách Khoa TP.HCM.',
-                ],
-                'edu_en' => [
-                    'Bachelor of Economics, major in Audit and Accountancy (UEH).',
-                    'Engineer major in Chemical Engineering, HCMUT.',
-                ],
-                'exp_vi' => [
-                    'Trưởng văn phòng đại diện – Công ty TNHH Kiểm Toán & Tư vấn Phan Dũng (Trà Vinh).',
-                    'Giám đốc Công ty TNHH MTV Bán đấu giá Tài sản Bảo Tín – Trà Vinh.',
-                    'Trưởng ban kiểm soát – CTCP Muối I ốt Trà Vinh.',
-                ],
-                'exp_en' => [
-                    'Chief of Representative Office at Tra Vinh – Phan Dung Auditing & Consulting Services Co., Ltd.',
-                    'Director of Property Audition Bao Tin Limited Company.',
-                    'Chief of Supervisory Board at Tra Vinh Iodize Salt JSC.',
-                ],
-                'years' => '35 years',
+        // 3 — Nguyễn Thu Trang
+        [
+            'name' => 'Nguyễn Thu Trang',
+            'role_vi' => 'Thẩm Định Viên',
+            'role_en' => 'Valuer',
+            'certs' => [
+                'Mã số thẻ TĐV: <strong>XIII18.2076</strong> (Valuer Certificate No: XIII18.2076, signed by Ministry of Finance)',
             ],
-
-            // 8
-            [
-                'name' => 'Lại Thế Sơn',
-                'role_vi' => 'Đại diện văn phòng Vũng Tàu',
-                'role_en' => 'Vung Tau – Representative office',
-                'certs' => [],
-                'edu_vi' => ['Cử nhân Kế toán – Kiểm toán'],
-                'edu_en' => ['Bachelor of Audit and Accountancy'],
-                'exp_vi' => [
-                    'Phụ trách IT, kế toán thanh toán – Maritime Bank CN Vũng Tàu.',
-                    'Kế toán giao dịch, thanh toán, phụ trách CNTT – VBSP BR-VT.',
-                    'Kiểm soát viên – Maritime Bank Vũng Tàu (PGD Bà Rịa).',
-                    'Tổ trưởng quản lý & hỗ trợ tín dụng – HDBank CN Vũng Tàu.',
-                    'Trưởng Phòng giao dịch – HDBank CN Vũng Tàu.',
-                    'Giám đốc PGD – MHB CN Bà Rịa – Vũng Tàu.',
-                    'Phó Giám đốc PGD Chí Linh – BIDV CN Vũng Tàu Côn Đảo.',
-                ],
-                'exp_en' => [
-                    'Charge of IT & settlement accountant – Maritime Bank, Vung Tau branch.',
-                    'Transaction & settlement accountant, in charge of IT – Vietnam Bank for Social Policies, Ba Ria–Vung Tau.',
-                    'Auditor – Maritime Bank, Vung Tau Branch – Ba Ria Transaction Office.',
-                    'Leader of Credit management & support team – HDBank, Vung Tau branch.',
-                    'Chief of Transaction Office – HDBank, Vung Tau branch.',
-                    'Director – Mekong Housing Bank (MHB), Ba Ria–Vung Tau branch.',
-                    'Vice Director of Chi Linh Transaction Office – BIDV, Vung Tau Con Dao branch.',
-                ],
-                'years' => '21 years',
+            'edu_vi' => [
+                'Cử nhân mạng máy tính và viễn thông',
             ],
-
-            // 9
-            [
-                'name' => 'Phạm Duy Dương',
-                'role_vi' => 'Giám đốc Chi nhánh Long An',
-                'role_en' => 'Director – Long An branch',
-                'certs' => [
-                    'Chứng chỉ Định giá đất số: <strong>0070124</strong> (Land valuation certificate number 0070124, issued by MONRE)',
-                ],
-                'edu_vi' => [
-                    'Cử nhân Luật; Cử nhân Quản trị Kinh doanh; Chứng chỉ Thẩm định giá.',
-                ],
-                'edu_en' => [
-                    'Bachelor of Law; Bachelor of Business Administration; Certificate of Valuation.',
-                ],
-                'exp_vi' => [
-                    'Chuyên viên tín dụng – VPBank.',
-                    'Chuyên viên thẩm định giá – VINAP (CN Long An).',
-                    'Giám đốc Chi nhánh – Dinh Vang Valuation (Long An).',
-                    'Chuyên viên thẩm định – LAHA Investment Consulting & Valuation Services.',
-                ],
-                'exp_en' => [
-                    'Credit Specialist at Vietnam Prosperity Bank.',
-                    'Valuation Specialist – VINAP, Long An branch.',
-                    'Branch Director – Dinh Vang Valuation, Long An.',
-                    'Valuation Specialist – LAHA investment consulting and valuation services Co., Ltd.',
-                ],
-                'years' => '15 years',
+            'edu_en' => [
+                'Bachelor of Computer Networks and Telecommunications',
             ],
-
-            // 10
-            [
-                'name' => 'Nguyễn Thị Kim Huệ',
-                'role_vi' => 'Trưởng phòng Dịch vụ Khách hàng',
-                'role_en' => 'Customer Service Manager',
-                'certs' => [
-                    'Chứng chỉ Định giá đất số: <strong>04100119</strong> (Land valuation certificate number 04100119, issued by MONRE)',
-                ],
-                'edu_vi' => [
-                    'Cử nhân Quản trị Kinh doanh – chuyên ngành Thẩm định giá (ĐH Tài chính – Marketing).',
-                ],
-                'edu_en' => [
-                    'Bachelor of Business Administration, Valuation major – University of Finance and Marketing.',
-                ],
-                'exp_vi' => [
-                    'Chuyên viên thẩm định giá tại SIVC.',
-                    'Chuyên viên thẩm định giá tại VINAP.',
-                ],
-                'exp_en' => [
-                    'Appraisal Specialist at Southern Information and Valuation Corporation.',
-                    'Appraisal Specialist at VINAP.',
-                ],
-                'years' => '10 years',
+            'exp_vi' => [
+                'Chuyên viên phòng mua bán – Công ty Cổ phần phần mềm FPT (06/2006–08/2019).',
+                'Thẩm định viên tại Công ty TNHH Thẩm định giá và Đại lý thuế Việt Nam (09/2019–06/2022).',
             ],
-
-            // 11
-            [
-                'name' => 'Trần Thị Mỹ Hạnh',
-                'role_vi' => 'Giám đốc Kinh doanh kiêm Trợ lý Giám đốc',
-                'role_en' => 'Sales Director and Assistant General Manager',
-                'certs' => [
-                    'Chứng chỉ Định giá đất số: <strong>04090119</strong> (issued by MONRE)',
-                    'Chứng chỉ Đấu thầu cơ bản: <strong>039-DTCB11118/KHXD</strong>',
-                ],
-                'edu_vi' => [
-                    'Cử nhân Tài chính – Ngân hàng (UEH).',
-                ],
-                'edu_en' => [
-                    'Bachelor of Finance – Banking, Ho Chi Minh City University of Economics.',
-                ],
-                'exp_vi' => [
-                    'Phụ trách mảng Tổng hợp Marketing – SIVC.',
-                    'Giám đốc Kinh doanh kiêm Trợ lý TGĐ.',
-                ],
-                'exp_en' => [
-                    'In charge of Marketing range – SIVC.',
-                    'Sales Director and Assistant General Manager.',
-                ],
-                'years' => '18 years',
+            'exp_en' => [
+                'Purchasing Department Specialist - FPT Software JSC (Jun 2006 – Aug 2019).',
+                'Valuer at Vietnam Appraisal and Investment Consulting Corporation (Sep 2019 – Jun 2022).',
             ],
+            'years' => '20 years',
+        ],
 
-            // 12
-            [
-                'name' => 'Huỳnh Nguyễn Kim Thảo',
-                'role_vi' => 'Trưởng phòng Kiểm soát',
-                'role_en' => 'Head of Internal Control Department',
-                'certs' => [
-                    'Chứng chỉ Định giá đất số: <strong>0890324</strong> (Land valuation certificate number 0890324, issued by MONRE)',
-                ],
-                'edu_vi' => [
-                    'Cử nhân Quản lý đất đai – ĐH Tài Nguyên & Môi Trường TP.HCM.',
-                ],
-                'edu_en' => [
-                    'Bachelor of Land Management, Ho Chi Minh University of Natural Resources and Environment.',
-                ],
-                'exp_vi' => [
-                    'Trưởng phòng Kiểm soát tại VINAP.',
-                ],
-                'exp_en' => [
-                    'Head of Control Department at VINAP.',
-                ],
-                'years' => '8 years',
+        // 4 — Lê Văn Phi
+        [
+            'name' => 'Lê Văn Phi',
+            'role_vi' => 'Thẩm Định Viên',
+            'role_en' => 'Valuer',
+            'certs' => [
+                'Mã số thẻ TĐV: <strong>XV23.2451</strong> (Valuer Certificate No: XV23.2451, signed by Ministry of Finance)',
             ],
-
-            // 13
-            [
-                'name' => 'Trần Trang Yến Loan',
-                'role_vi' => 'Phó phòng nghiệp vụ (Operations Dept. 1)',
-                'role_en' => 'Deputy Head of Operations Department 1',
-                'certs' => [
-                    'Chứng chỉ Định giá đất số: <strong>0710324</strong> (Land valuation certificate number 0710324, issued by MONRE)',
-                ],
-                'edu_vi' => [
-                    'Thạc sĩ Quản lý đất đai.',
-                    'Cử nhân Quản lý đất đai – chuyên ngành địa chính.',
-                    'Cử nhân Luật.',
-                ],
-                'edu_en' => [
-                    'Master of Land Management.',
-                    'Bachelor of Land Management – cadastral major.',
-                    'Bachelor of Law.',
-                ],
-                'exp_vi' => [
-                    'Chuyên viên Ban Bồi thường Giải phóng mặt bằng – Q. Tân Phú, TP.HCM.',
-                    'Phó phòng Dịch vụ Khách hàng tại VINAP.',
-                ],
-                'exp_en' => [
-                    'Specialist – Compensation & Clearance Dept., Tan Phu District, HCMC.',
-                    'Customer Service Deputy at VINAP.',
-                ],
-                'years' => '7 years',
+            'edu_vi' => ['Trình độ chuyên môn nghiệp vụ: Kiểm toán'],
+            'edu_en' => ['Professional ability: Audit'],
+            'exp_vi' => [
+                'Trợ lý kiểm toán tại Công ty TNHH Kiểm toán KSI Việt Nam.',
+                'Kiểm toán viên tại Công ty TNHH Kiểm toán KSI Việt Nam.',
+                'Kiểm toán viên tại Công ty TNHH Tri Thức Việt.',
+                'Thẩm định viên Công ty Cổ phần Thẩm định giá và Tư vấn Đầu tư Việt Nam.',
             ],
-
-            // 14
-            [
-                'name' => 'Phạm Thị Minh Hương',
-                'role_vi' => 'Phó phòng nghiệp vụ (Operations Dept. 2)',
-                'role_en' => 'Deputy Head of Operations Department 2',
-                'certs' => [
-                    'Chứng chỉ Định giá đất số: <strong>10270122</strong> (Land valuation certificate number 10270122, issued by MONRE)',
-                ],
-                'edu_vi' => [
-                    'Cử nhân Tài chính – Ngân hàng, chuyên ngành Thẩm định giá.',
-                ],
-                'edu_en' => [
-                    'Bachelor of Banking and Finance – Valuation major.',
-                ],
-                'exp_vi' => [
-                    'Phó phòng Dịch vụ Khách hàng tại VINAP.',
-                ],
-                'exp_en' => [
-                    'Customer Service Deputy at VINAP.',
-                ],
-                'years' => '7 years',
+            'exp_en' => [
+                'Audit assistant at KSI Vietnam Auditing Co., Ltd.',
+                'Auditor at KSI Vietnam Auditing Co., Ltd.',
+                'Auditor at Tri Thuc Viet Co., Ltd.',
+                'Valuer at Vietnam Appraisal and Investment Consulting Corporation.',
             ],
+            'years' => '12 years',
+        ],
 
+        // 5 — Tăng Thái Bích Thông
+        [
+            'name' => 'Tăng Thái Bích Thông',
+            'role_vi' => 'Thẩm Định Viên',
+            'role_en' => 'Valuer',
+            'certs' => [
+                'Mã số thẻ TĐV: <strong>XIV19.2326</strong> (Valuer Certificate No: XIV19.2326, signed by Ministry of Finance)',
+            ],
+            'edu_vi' => [
+                'Cử nhân Sư Phạm Trường Đại học Sư Phạm TP.HCM.',
+                'Thạc sĩ Quản Trị Kinh doanh Trường Đại học Mở Malaysia.',
+                'Nghiên cứu sinh - chuyên ngành Kinh tế học Trường Đại học UCSI Malaysia.',
+            ],
+            'edu_en' => [
+                'Bachelor of Math - Ho Chi Minh City University of Pedagogy Education.',
+                'Master of Business Administration - Open University Malaysia.',
+                'Postgraduate - majoring in Economics at UCSI University Malaysia.',
+            ],
+            'exp_vi' => [
+                'Cán bộ Khoa Ngoại ngữ Trường Cao đẳng Cộng đồng Kiên Giang.',
+                'Chuyên viên thẩm định giá tại VINAP.',
+                'Phó phòng nhân sự tại VINAP.',
+                'Giám đốc Tổ hợp tác quốc tế tại VINAP.',
+            ],
+            'exp_en' => [
+                'Officer of Foreign Languages Department, Kien Giang Community College.',
+                'Appraisal specialist at VINAP.',
+                'Deputy of Administration - Human Resources Department, VINAP.',
+                'Director of International Corporation Department, VINAP.',
+            ],
+            'years' => '14 years',
+        ],
+
+        // 6 — Lưu Thị Ngà
+        [
+            'name' => 'Lưu Thị Ngà',
+            'role_vi' => 'Thẩm Định Viên',
+            'role_en' => 'Valuer',
+            'certs' => [
+                'Mã số thẻ TĐV: <strong>XIV19.2228</strong> (Valuer Certificate No: XIV19.2228, signed by Ministry of Finance)',
+            ],
+            'edu_vi' => [
+                'Cử nhân Quản trị kinh doanh, chuyên ngành Thẩm định giá (ĐH Tài chính – Marketing).',
+            ],
+            'edu_en' => [
+                'Bachelor of Business Administration, Valuation major at University of Finance and Marketing.',
+            ],
+            'exp_vi' => [
+                'Nhân viên kế toán Công ty TNHH thương mại Nam Việt (12/2019–07/2020).',
+                'Nhân viên kinh doanh Công ty cổ phần dược phẩm Folexpharm.',
+                'Thẩm định viên tại Công ty CP Thẩm định giá Tư vấn đầu tư Việt Nam.',
+            ],
+            'exp_en' => [
+                'Accounting staff of Nam Viet Trading Co., Ltd (Dec 2019 – Jul 2020).',
+                'Sales staff of Folexpharm Pharmaceutical JSC.',
+                'Valuer at Vietnam Appraisal and Investment Consulting Corporation.',
+            ],
+            'years' => '12 years',
+        ],
+
+        // 7 — Huỳnh Quốc Chiến
+        [
+            'name' => 'Huỳnh Quốc Chiến',
+            'role_vi' => 'Giám đốc Chi Nhánh Trà Vinh',
+            'role_en' => 'Director – Tra Vinh branch',
+            'certs' => [
+                'Estate Agent certificate – <strong>No 0004TV</strong>.',
+                'Estate Agent Appraisal certificate.',
+                'Managing and controlling Real estate transaction Certificate.',
+                'Auction certificate – <strong>No 1228/TP/ĐG/CCHN</strong>.',
+                'Construction project quality accreditation certificate.',
+                'Construction project estimation certificate.',
+            ],
+            'edu_vi' => [
+                'Cử nhân kinh tế, chuyên ngành kế toán Kiểm toán, Trường Đại học Kinh tế TP.HCM.',
+                'Kỹ sư chuyên ngành công nghệ Hóa, Trường Đại học Bách khoa TP.HCM.',
+            ],
+            'edu_en' => [
+                'Bachelor of Economics, major in Audit and Accountancy, University of Economics Ho Chi Minh City.',
+                'Engineer major in Chemical Engineering, Ho Chi Minh City University of Technology.',
+            ],
+            'exp_vi' => [
+                'Trưởng văn phòng đại diện – Công ty TNHH Kiểm Toán và Tư vấn Phan Dũng - Chi nhánh Trà Vinh.',
+                'Giám đốc Công ty TNHH MTV Bán đấu giá Tài sản Bảo Tín – tại Trà Vinh.',
+                'Trưởng ban kiểm soát Công ty Cổ phần Muối I ốt Trà Vinh.',
+            ],
+            'exp_en' => [
+                'Chief of representative office at Tra Vinh – Phan Dung Auditing and Consulting Services Co., Ltd.',
+                'Director of Property Audition Bao Tin Limited Company.',
+                'Chief of supervisory board at Tra Vinh Iodize Salt Joint Stock Company.',
+            ],
+            'years' => '35 years',
+        ],
+
+        // 8 — Lại Thế Sơn
+        [
+            'name' => 'Lại Thế Sơn',
+            'role_vi' => 'Đại diện văn phòng Vũng Tàu',
+            'role_en' => 'Vung Tau - Representative office',
+            'certs' => [],
+            'edu_vi' => ['Cử nhân Kế toán - Kiểm toán'],
+            'edu_en' => ['Bachelor of Audit and Accountancy'],
+            'exp_vi' => [
+                'Phụ trách IT, Kế toán thanh toán tại Ngân Hàng TMCP Hàng Hải CN Vũng Tàu.',
+                'Kế toán giao dịch, kế toán thanh toán, phụ trách Công nghệ thông tin tại Ngân Hàng Chính Sách Xã Hội CN tỉnh BRVT.',
+                'Kiểm soát viên tại Ngân Hàng TMCP Hàng Hải CN Vũng Tàu - PGD Bà Rịa.',
+                'Tổ trưởng tổ quản lý và hỗ trợ tín dụng tại HDBank CN Vũng Tàu.',
+                'Trưởng Phòng giao dịch tại HDBank CN Vũng Tàu.',
+                'Giám đốc Phòng giao dịch MHB chi nhánh Bà Rịa - Vũng Tàu.',
+                'Phó Giám đốc PGD Chí Linh tại BIDV CN Vũng Tàu Côn Đảo.',
+            ],
+            'exp_en' => [
+                'Charge of IT Department, Settlement accountant at Maritime bank – Vung Tau branch.',
+                'Transaction accountant, settlement accountant, in charge of IT at Vietnam Bank for Social Policies – Ba Ria Vung Tau province.',
+                'Auditor at Maritime bank – Vung Tau Branch – Ba Ria Transaction Office.',
+                'Leader of Credit management and support team at HDBank – Vung Tau branch.',
+                'Chief of Transaction office at HDBank – Vung Tau branch.',
+                'Director at Mekong Housing Bank (MHB), Ba Ria - Vung Tau branch.',
+                'Vice Director of Chi Linh Transaction office at BIDV – Vung Tau Con Dao branch.',
+            ],
+            'years' => '21 years',
+        ],
+
+        // 9 — Phạm Duy Dương
+        [
+            'name' => 'Phạm Duy Dương',
+            'role_vi' => 'Giám đốc Chi Nhánh Long An',
+            'role_en' => 'Director – Long An branch',
+            'certs' => [
+                'Chứng chỉ Định giá đất số: <strong>0070124</strong> (Land valuation certificate number: 0070124, issued by MONRE)',
+            ],
+            'edu_vi' => [
+                'Cử nhân luật, Cử nhân quản trị kinh doanh, Chứng chỉ thẩm định giá.',
+            ],
+            'edu_en' => [
+                'Bachelor of law, Bachelor of Business Administration, Certificate of valuation.',
+            ],
+            'exp_vi' => [
+                'Chuyên viên tín dụng ngân hàng Việt Nam Thịnh Vượng.',
+                'Chuyên viên thẩm định giá tại VINAP – chi nhánh Long An.',
+                'Giám đốc chi nhánh công ty TNHH thẩm định giá Đỉnh Vàng – chi nhánh Long An.',
+                'Chuyên viên thẩm định giá công ty TNHH dịch vụ tư vấn đầu tư và thẩm định giá LAHA.',
+            ],
+            'exp_en' => [
+                'Credit specialist at Vietnam Prosperity Bank.',
+                'Valuation specialist of VINAP – Long An branch.',
+                'Branch director of Dinh Vang Valuation Company – Long An branch.',
+                'Valuation specialist of LAHA Investment Consulting and Valuation Services Co., Ltd.',
+            ],
+            'years' => '15 years',
+        ],
+
+        // 10 — Nguyễn Thị Kim Huệ
+        [
+            'name' => 'Nguyễn Thị Kim Huệ',
+            'role_vi' => 'Trưởng phòng Dịch vụ khách hàng',
+            'role_en' => 'Customer Service Manager',
+            'certs' => [
+                'Chứng chỉ Định giá đất số: <strong>04100119</strong> (Land valuation certificate number: 04100119, issued by MONRE)',
+            ],
+            'edu_vi' => [
+                'Cử nhân Quản trị kinh doanh, chuyên ngành Thẩm định giá, Trường Đại học Tài chính – Marketing.',
+            ],
+            'edu_en' => [
+                'Bachelor of Business Administration, Valuation major at University of Finance and Marketing.',
+            ],
+            'exp_vi' => [
+                'Chuyên viên thẩm định giá tại Công ty cổ phần Thông tin và Thẩm định giá Miền Nam (SIVC).',
+                'Chuyên viên thẩm định giá tại Công ty Cổ phần Thẩm định giá và Tư vấn Đầu tư Việt Nam (VINAP).',
+            ],
+            'exp_en' => [
+                'Appraisal specialist at Southern Information And Valuation Corporation.',
+                'Appraisal specialist at Vietnam Appraisal and Investment Consulting Corporation (VINAP).',
+            ],
+            'years' => '10 years',
+        ],
+
+        // 11 — Trần Thị Mỹ Hạnh
+        [
+            'name' => 'Trần Thị Mỹ Hạnh',
+            'role_vi' => 'Giám đốc Kinh Doanh kiêm Trợ lý Giám Đốc',
+            'role_en' => 'Sales Director and Assistant General Manager',
+            'certs' => [
+                'Chứng chỉ Định giá đất số: <strong>04090119</strong> (issued by MONRE)',
+                'Chứng chỉ Đào tạo Đấu thầu cơ bản số: <strong>039-DTCB11118/KHXD</strong>',
+            ],
+            'edu_vi' => [
+                'Cử nhân Tài chính – Ngân hàng Trường Đại học Kinh tế TP.HCM.',
+            ],
+            'edu_en' => [
+                'Bachelor of Finance - Banking, Ho Chi Minh City University of Economics.',
+            ],
+            'exp_vi' => [
+                'Phụ trách mảng Tổng Hợp Marketing - Công ty cổ phần thông tin và thẩm định giá Miền Nam.',
+                'Giám đốc Kinh doanh kiêm Trợ lý Tổng Giám Đốc.',
+            ],
+            'exp_en' => [
+                'In charge of Marketing range - Southern Information And Valuation Corporation.',
+                'Sales Director and Assistant General Manager.',
+            ],
+            'years' => '18 years',
+        ],
+
+        // 12 — Huỳnh Nguyễn Kim Thảo
+        [
+            'name' => 'Huỳnh Nguyễn Kim Thảo',
+            'role_vi' => 'Trưởng phòng Kiểm soát',
+            'role_en' => 'Head of Internal Control Department',
+            'certs' => [
+                'Chứng chỉ Định giá đất số: <strong>0890324</strong> (Land valuation certificate number: 0890324, issued by MONRE)',
+            ],
+            'edu_vi' => [
+                'Cử nhân quản lý đất đai, Trường Đại học Tài Nguyên và Môi trường TP. HCM.',
+            ],
+            'edu_en' => [
+                'Bachelor of Land Management, Ho Chi Minh University of Natural Resources and Environment.',
+            ],
+            'exp_vi' => [
+                'Trưởng phòng Kiểm soát tại Công ty Cổ phần Thẩm định giá và Tư vấn đầu tư Việt Nam (VINAP).',
+            ],
+            'exp_en' => [
+                'Head of Control Department at Vietnam Appraisal and Investment Consulting Corporation (VINAP).',
+            ],
+            'years' => '8 years',
+        ],
+
+        // 13 — Trần Trang Yến Loan
+        [
+            'name' => 'Trần Trang Yến Loan',
+            'role_vi' => 'Phó phòng nghiệp vụ',
+            'role_en' => 'Deputy Head of Operations Department 1',
+            'certs' => [
+                'Chứng chỉ định giá đất số: <strong>0710324</strong> (Land valuation certificate number: 0710324, issued by MONRE)',
+            ],
+            'edu_vi' => [
+                'Thạc sĩ quản lý đất đai.',
+                'Cử nhân quản lý đất đai – chuyên ngành địa chính.',
+                'Cử nhân Luật.',
+            ],
+            'edu_en' => [
+                'Master of land management.',
+                'Bachelor of land management – cadastral major.',
+                'Bachelor of Law.',
+            ],
+            'exp_vi' => [
+                'Chuyên viên phòng nghiệp vụ Ban Bồi thường giải phóng mặt bằng quận Tân Phú, TP. Hồ Chí Minh.',
+                'Phó phòng dịch vụ khách hàng tại VINAP.',
+            ],
+            'exp_en' => [
+                'Specialist of the Compensation and Clearance Department of Tan Phu District, Ho Chi Minh City.',
+                'Customer Service Deputy at VINAP.',
+            ],
+            'years' => '7 years',
+        ],
+
+        // 14 — Phạm Thị Minh Hương
+        [
+            'name' => 'Phạm Thị Minh Hương',
+            'role_vi' => 'Phó phòng nghiệp vụ',
+            'role_en' => 'Deputy Head of Operations Department 2',
+            'certs' => [
+                'Chứng chỉ Định giá đất số: <strong>10270122</strong> (Land valuation certificate number: 10270122, issued by MONRE)',
+            ],
+            'edu_vi' => [
+                'Cử nhân Tài chính ngân hàng - Chuyên ngành Thẩm định giá.',
+            ],
+            'edu_en' => [
+                'Bachelor of Banking and Finance - Valuation Major.',
+            ],
+            'exp_vi' => [
+                'Phó phòng dịch vụ khách hàng tại VINAP.',
+            ],
+            'exp_en' => [
+                'Customer Service Deputy at VINAP.',
+            ],
+            'years' => '7 years',
         ],
     ],
+],
+
 ];

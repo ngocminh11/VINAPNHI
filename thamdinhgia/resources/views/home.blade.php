@@ -155,8 +155,7 @@
     <div class="small text-muted mt-2">Form minh họa, không lưu dữ liệu.</div>
 
     <div class="ratio ratio-21x9 mt-3">
-      <iframe src="{{ config('site.contact_map_embed') }}" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-    </div>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2688.951332095644!2d106.71804905413036!3d10.69508842699373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317531ff515252e9%3A0x845eb8ef8e5b382a!2zQ8O0bmcgdHkgQ1AgVGjhuqltIMSR4buLbmggZ2nDoSB2w6AgVMawIHbhuqVuIMSQ4bqndSB0xrAgVmnhu4d0IE5hbSAtIFZJTkFQ!5e0!3m2!1svi!2s!4v1761802098603!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>    </div>
   </div>
 </section>
 @endsection
