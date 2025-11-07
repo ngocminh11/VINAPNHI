@@ -17,14 +17,23 @@
 
 {{-- VĂN BẢN PHÁP LUẬT (không sticky) --}}
 @if(count($laws))
-  <div class="section-title mb-3" data-animate>Văn bản pháp luật</div>
-  <div class="card-lite p-3 mb-4" data-animate>
-    <ul class="list-unstyled m-0">
-      @foreach($laws as $l)
-        <li class="mb-2"><a href="#" class="text-decoration-none">{{ $l }}</a></li>
-      @endforeach
-    </ul>
-  </div>
+  <div class="section-title mb-2" data-animate>Văn bản pháp luật</div>
+<div class="card-lite p-3 mb-4" data-animate>
+  <ul class="list-unstyled m-0">
+    @foreach(config('site.laws') as $law)
+      @php
+        $label = is_array($law) ? ($law['label'] ?? 'Tài liệu') : $law;
+        $href  = is_array($law) ? ($law['href']  ?? '#')     : '#';
+      @endphp
+      <li class="mb-2">
+        <a href="{{ $href }}" target="_blank" rel="noopener" class="text-decoration-none text-success">
+          {{ $label }}
+        </a>
+      </li>
+    @endforeach
+  </ul>
+</div>
+
 @endif
 
 {{-- LIÊN KẾT WEB (không sticky) --}}

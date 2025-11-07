@@ -17,11 +17,33 @@
 
   $laws  = config('site.laws', []);
   $links = config('site.links', []);
-  $featured = data_get(config('site.home'), 'serviceTiles', []);
+  $featured  = data_get(config('site.home'), 'serviceTiles', []);
   $delivered = data_get(config('site.home'), 'deliveredServices', []);
-
   $deliveredImg = $delivered[0]['img'] ?? null;
 @endphp
+<style>
+  :root { --header-h:64px }
+
+  /* Đừng để ancestor phá sticky */
+  section.container.my-4,
+  section.container.my-4 .row,
+  section.container.my-4 .col-lg-4{ overflow:visible !important; }
+
+  /* Sidebar dính trên desktop, cách header 20px */
+  .sticky-aside{
+    position: sticky;
+    top: calc(var(--header-h) + 20px);
+  }
+
+  /* Tắt sticky trên màn hẹp để đỡ “dính” khó chịu */
+  @media (max-width: 991.98px){
+    .sticky-aside{ position: static; top:auto; }
+  }
+
+  /* Căn khoảng cách các block trong sidebar cho đều nhau */
+  .sticky-aside > * + *{ margin-top: 28px; }
+</style>
+
 
 {{-- HERO --}}
 <section class="hero-full" style="background-image:url('{{ $heroUrl }}')">
@@ -34,68 +56,17 @@
   </button>
 </section>
 
-{{-- STRIP: DỊCH VỤ NỔI BẬT (ngay sau banner) --}}
-<section id="info-start" class="container py-4" data-animate>
-  <div class="section-title mb-3">Dịch vụ nổi bật</div>
-  <div class="services-grid">
-    {{-- 1. Thẩm định giá --}}
-    <a href="/#services" class="svc-card text-decoration-none text-dark">
-      <div class="p-3 d-flex gap-3 align-items-start">
-        <div class="icon-wrap"><svg class="i"><use href="#icon-home"/></svg></div>
-        <div>
-          <div class="fw-bold">Thẩm định giá</div>
-          <div class="desc">Giải pháp nhanh, chuẩn, minh bạch.</div>
-        </div>
-      </div>
-    </a>
-    {{-- 2. Đấu giá BĐS, tài sản --}}
-    <a href="/#services" class="svc-card text-decoration-none text-dark">
-      <div class="p-3 d-flex gap-3 align-items-start">
-        <div class="icon-wrap"><svg class="i"><use href="#icon-briefcase"/></svg></div>
-        <div>
-          <div class="fw-bold">Đấu giá BĐS, tài sản</div>
-          <div class="desc">Minh bạch thủ tục, triển khai nhanh.</div>
-        </div>
-      </div>
-    </a>
-    {{-- 3. Chuyển nhượng dự án --}}
-    <a href="/#services" class="svc-card text-decoration-none text-dark">
-      <div class="p-3 d-flex gap-3 align-items-start">
-        <div class="icon-wrap"><svg class="i"><use href="#icon-gear"/></svg></div>
-        <div>
-          <div class="fw-bold">Tư vấn chuyển nhượng dự án</div>
-          <div class="desc">M&A, pháp lý, cấu trúc giao dịch.</div>
-        </div>
-      </div>
-    </a>
-    {{-- 4. Tư vấn đầu tư - BĐS --}}
-    <a href="/#services" class="svc-card text-decoration-none text-dark">
-      <div class="p-3 d-flex gap-3 align-items-start">
-        <div class="icon-wrap"><svg class="i"><use href="#icon-chart"/></svg></div>
-        <div>
-          <div class="fw-bold">Tư vấn đầu tư • BĐS</div>
-          <div class="desc">Chiến lược, tài chính, phát triển.</div>
-        </div>
-      </div>
-    </a>
-    {{-- 5. Nghiên cứu thị trường --}}
-    <a href="/#services" class="svc-card text-decoration-none text-dark">
-      <div class="p-3 d-flex gap-3 align-items-start">
-        <div class="icon-wrap"><svg class="i"><use href="#icon-gear"/></svg></div>
-        <div>
-          <div class="fw-bold">Nghiên cứu thị trường</div>
-          <div class="desc">Dữ liệu giá, xu hướng, báo cáo.</div>
-        </div>
-      </div>
-    </a>
-  </div>
+{{-- STRIP: Dịch vụ nổi bật (ngay dưới banner) --}}
+<section id="info-start" class="container my-5">
+  @include('partials.service-strip')
 </section>
+
 
 {{-- MAIN CONTENT + SIDEBAR --}}
 <section class="container my-4">
   <div class="row g-4">
 
-    {{-- LEFT: Nội dung giới thiệu đầy đủ song ngữ --}}
+    {{-- LEFT --}}
     <div class="col-lg-8">
 
       {{-- Giới thiệu chung / Overview --}}
@@ -150,7 +121,7 @@
         <p class="fst-italic mb-0">Here, we would like to provide the most recent information about VINAP and our aspiration is to assist clients in achieving future success. We are eager to earn the confidence of both domestic and international consumers.</p>
       </article>
 
-      {{-- Thông tin doanh nghiệp / Business Information --}}
+      {{-- Thông tin doanh nghiệp --}}
       <article class="card-lite p-4 mb-4 reveal">
         <div class="section-title mb-2">Thông tin doanh nghiệp <span class="text-muted">/ Business Information</span></div>
 
@@ -197,7 +168,7 @@
         </div>
       </article>
 
-      {{-- Hệ thống chi nhánh / System of Branches --}}
+      {{-- Hệ thống chi nhánh --}}
       <article class="card-lite p-4 mb-4 reveal">
         <div class="section-title mb-2">Hệ thống chi nhánh <span class="text-muted">/ System of Branches</span></div>
 
@@ -223,7 +194,7 @@
         </div>
       </article>
 
-      {{-- Tổ chức liên kết / Associated Institution --}}
+      {{-- Tổ chức liên kết --}}
       <article class="card-lite p-4 mb-4 reveal">
         <div class="section-title mb-2">Tổ chức liên kết <span class="text-muted">/ Associated Institution</span></div>
 
@@ -245,24 +216,19 @@
     {{-- RIGHT: Sidebar dính --}}
     <aside class="col-lg-4">
       <div class="sticky-aside">
-
-        {{-- Dịch vụ đã thực hiện --}}
-        <div class="section-title mb-2" data-animate>Dịch vụ đã thực hiện</div>
-        <div class="card-lite p-0 mb-4" data-animate>
-          @php
-            $sd = $delivered[0] ?? null;
-            $img = $deliveredImg ?? asset('images/placeholder-thumb.svg');
-          @endphp
-          <img src="{{ $img }}" data-fallback="/images/placeholder-thumb.svg" alt="" class="w-100" style="height:220px;object-fit:cover">
-          <div class="p-3">{{ $sd['caption'] ?? 'Một số dự án tiêu biểu' }}</div>
-        </div>
-
+        @include('partials.delivered-strip')
         {{-- Văn bản pháp luật --}}
         <div class="section-title mb-2" data-animate>Văn bản pháp luật</div>
         <div class="card-lite p-3 mb-4" data-animate>
           <ul class="list-unstyled m-0">
             @foreach($laws as $law)
-              <li class="mb-2"><a href="#" class="text-decoration-none">{{ $law }}</a></li>
+              @php
+                $label = is_array($law) ? ($law['label'] ?? 'Tài liệu') : $law;
+                $href  = is_array($law) ? ($law['href'] ?? '#')      : '#';
+              @endphp
+              <li class="mb-2">
+                <a href="{{ $href }}" target="_blank" rel="noopener" class="text-decoration-none text-success">{{ $label }}</a>
+              </li>
             @endforeach
           </ul>
         </div>
@@ -272,7 +238,11 @@
         <div class="card-lite p-3 mb-4" data-animate>
           <ul class="list-unstyled m-0">
             @foreach($links as $l)
-              <li class="mb-2"><a href="{{ $l['href'] }}" class="text-decoration-none">{{ $l['label'] }}</a></li>
+              @php
+                $lLabel = is_array($l) ? ($l['label'] ?? 'Link') : (string) $l;
+                $lHref  = is_array($l) ? ($l['href']  ?? '#')    : '#';
+              @endphp
+              <li class="mb-2"><a href="{{ $lHref }}" class="text-decoration-none text-success" target="_blank" rel="noopener">{{ $lLabel }}</a></li>
             @endforeach
           </ul>
         </div>
@@ -282,4 +252,13 @@
 
   </div>
 </section>
+
+<script>
+  // snap xuống strip
+  (function(){
+    const cue = document.getElementById('scrollCue');
+    const target = document.querySelector('#info-start');
+    if(cue && target) cue.addEventListener('click', ()=> target.scrollIntoView({behavior:'smooth', block:'start'}));
+  })();
+</script>
 @endsection

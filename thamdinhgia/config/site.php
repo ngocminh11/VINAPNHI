@@ -15,19 +15,22 @@ return [
 
     // Sidebar dùng chung
     'laws' => [
-        'Luật giá',
-        'Luật đất đai',
-        'Nghị định quy định chi tiết',
-        'Nghị định đấu giá tài sản',
-        'Nghị định bồi thường, hỗ trợ tái định cư',
-        'Thông tư tài nguyên & môi trường'
+    ['label' => 'Luật đất đai', 'href' => 'http://vinap.vn/image/data/download/2.LuatDatDai_2013_45_2013_QH13.pdf'],
+    ['label' => 'Nghị định quy định chi tiết luật đất đai', 'href' => 'http://vinap.vn/image/data/download/3.NghiDinhQuyDinhChiTietLDD_43_2014_NDCP.pdf'],
+    ['label' => 'Nghị định quy định về giá đất', 'href' => 'http://vinap.vn/image/data/download/4.NghiDinhQuyDinhVeGiaDat_44_2014_NDCP.pdf'],
+    ['label' => 'Nghị định quy định về bồi thường', 'href' => 'http://vinap.vn/image/data/download/5.NghiDinhQuyDinhVeBoiThuong_47_2014_NDCP.pdf'],
+    ['label' => 'Nghị định quy định về bồi thường hỗ trợ', 'href' => 'http://vinap.vn/image/data/download/6.NghiDinhQuyDinhVeBoiThuongHoTro_24_2014_NDCP.pdf'],
+    ['label' => 'Thông tư 36/2014 Bộ Tài nguyên & Môi trường', 'href' => 'http://vinap.vn/image/data/download/TT_36.signed.pdf'],
     ],
+
     'links' => [
-        ['label' => 'Bộ Tài chính', 'href' => '#'],
-        ['label' => 'Cục Thuế TP.HCM', 'href' => '#'],
-        ['label' => 'Sở Tài chính TP.HCM', 'href' => '#'],
-        ['label' => 'Sở KH&ĐT TP.HCM', 'href' => '#'],
-        ['label' => 'Cổng thông tin Chính phủ', 'href' => '#'],
+        ['label' => 'Bộ Tài chính', 'href' => 'http://www.mof.gov.vn'],
+        ['label' => 'Hội thẩm định giá Việt Nam', 'href' => 'http://www.vva.org.vn'],
+        ['label' => 'Sở Tài chính TP.HCM', 'href' => 'http://www.tcvq.hochiminhcity.gov.vn'],
+        ['label' => 'Sở Tài nguyên & Môi trường TP.HCM', 'href' => 'http://www.donre.hochiminhcity.gov.vn'],
+        ['label' => 'Sở Xây dựng TP.HCM', 'href' => 'http://www.constructiondpt.hochiminhcity.gov.vn'],
+        ['label' => 'Trường ĐH Tài chính – Marketing', 'href' => 'http://www.ufm.edu.vn'],
+        ['label' => 'Cổng thông tin điện tử Chính phủ', 'href' => 'http://www.chinhphu.vn'],
     ],
     'featured' => [
         ['title' => 'Thẩm định giá', 'img' => 'https://picsum.photos/seed/a/600/400'],
@@ -37,6 +40,33 @@ return [
 
     // Trang Home
     'home' => [
+        'deliveredServices' => [
+        [
+            'img' => 'http://vinap.vn/image/cache/data/dich-vu-da-thuc-hien/SanGoldHoanCauLongAn-350x210.jpg',
+            'caption' => 'Sân Golf Hoàn Cầu Long An',
+            'href' => '#',
+        ],
+        [
+            'img' => 'http://vinap.vn/image/cache/data/dich-vu-da-thuc-hien/DuAnGreenHill VillageQuyNhon-350x210.jpg',
+            'caption' => 'Dự án Greenhill Village Quy Nhơn',
+            'href' => '#',
+        ],
+        [
+            'img' => 'http://vinap.vn/image/cache/data/dich-vu-da-thuc-hien/SoTNMTHCM-350x210.jpg',
+            'caption' => 'Sở Tài Nguyên và Môi Trường TP.HCM',
+            'href' => '#',
+        ],
+        [
+            'img' => 'http://vinap.vn/image/cache/data/dich-vu-da-thuc-hien/CtyCPCharmEmpire-350x210.jpg',
+            'caption' => 'Công ty Cổ phần Charm Empire',
+            'href' => '#',
+        ],
+        [
+            'img' => 'http://vinap.vn/image/cache/data/dich-vu-da-thuc-hien/CtyCPDTXDPMV-350x210.jpg',
+            'caption' => 'Công ty CP Đầu tư & Xây dựng Phú Mỹ Vinh',
+            'href' => '#',
+        ],
+    ],
         'serviceTiles' => [
             ['title' => 'Thẩm định giá', 'img' => 'https://picsum.photos/seed/tile1/520/360'],
             ['title' => 'Đấu giá BĐS, tài sản', 'img' => 'https://picsum.photos/seed/tile2/520/360'],
@@ -45,16 +75,36 @@ return [
             ['title' => 'Nghiên cứu thị trường', 'img' => 'https://picsum.photos/seed/tile5/520/360'],
         ],
         'companyActivities' => [
-            ['title' => 'XÂY DỰNG VĂN HÓA DOANH NGHIỆP', 'desc' => 'Trong một doanh nghiệp, đặc biệt là những doanh nghiệp có quy mô lớn, là một tập hợp những con người khác nhau về trình độ chuyên môn, trình độ văn hóa, mức độ nhận thức, quan hệ xã hội, vùng miền địa lý, tư tưởng văn hóa ... ', 'img' => 'https://picsum.photos/seed/act1/140/100', 'date' => '07/09/2025'],
-            ['title' => 'CHIẾN LƯỢC KINH DOANH HIỆU QUẢ', 'desc' => 'Một chiến lược kinh doanh hiệu quả khi và chỉ khi nó tạo ra được sự khác biệt và sự khác biệt đó phải mang lại thành công cho doanh nghiệp. Kiến thức - Chiến lược kinh doanh hiệu quả - chiến lược tạo sự khác biệt ...', 'img' => 'httpsum.photos/seed/act2/140/100', 'date' => '07/09/2025'],
-            ['title' => 'TẠO DỰNG THƯƠNG HIỆU BỀN VỮNG', 'desc' => 'Xây dựng thương hiệu là một quá trình liên tục và không có điểm kết thúc. Công ty xây dựng thương hiệu chính là việc xây dựng sự phát triển bền vững và dài hạn ... ', 'img' => 'https://picsum.photos/seed/act3/140/100', 'date' => '07/09/2025'],
-            ['title' => 'DOANH NGHIỆP NỘI "THẮNG THẾ" TRÊN MẶT TRẬN BĐS', 'desc' => 'Từng huy động vốn từ nước ngoài và tự mình phát triển thành công nhiều dự án bất động sản ở Việt Nam, Tổng giám đốc Indochina Land Peter Ryder mới đây bất ngờ tuyên bố sẽ bắt tay với một vài doanh nghiệp trong nước ... ', 'img' => 'https://picsum.photos/seed/act4/140/100', 'date' => '07/09/2025'],
+        [
+            'title' => 'XÂY DỰNG VĂN HÓA DOANH NGHIỆP',
+            'route' => 'activities.vanhoa',
+            'desc'  => 'Trong một doanh nghiệp, đặc biệt là những doanh nghiệp có quy mô lớn...',
+            'img'   => 'https://picsum.photos/seed/act1/140/100',
+            'date'  => '07/09/2025',
         ],
-        'deliveredServices' => [
-            ['img' => 'https://picsum.photos/seed/done1/600/400', 'caption' => 'Trạm điện Solar 35kV'],
-            ['img' => 'https://picsum.photos/seed/done2/600/400', 'caption' => 'Nhà xưởng công nghiệp'],
-            ['img' => 'https://picsum.photos/seed/done3/600/400', 'caption' => 'Khu thương mại dịch vụ'],
+        [
+            'title' => 'CHIẾN LƯỢC KINH DOANH HIỆU QUẢ',
+            'route' => 'activities.chienluoc',   // THÊM ROUTE
+            'desc'  => 'Một chiến lược kinh doanh hiệu quả khi và chỉ khi nó tạo ra sự khác biệt...',
+            'img'   => 'https://picsum.photos/seed/act2/140/100', // SỬA httpsum -> https://picsum
+            'date'  => '07/09/2025',
         ],
+        [
+            'title' => 'TẠO DỰNG THƯƠNG HIỆU BỀN VỮNG',
+            'route' => 'activities.thuonghieu2',   // THÊM ROUTE
+            'desc'  => 'Xây dựng thương hiệu là một quá trình liên tục và không có điểm kết thúc...',
+            'img'   => 'https://picsum.photos/seed/act3/140/100',
+            'date'  => '07/09/2025',
+        ],
+        [
+            'title' => 'DOANH NGHIỆP NỘI "THẮNG THẾ" TRÊN MẶT TRẬN BĐS',
+            'route' => 'activities.noithang',      // CÓ ROUTE SẴN
+            'desc'  => 'Từng huy động vốn từ nước ngoài và tự mình phát triển thành công nhiều dự án...',
+            'img'   => 'https://picsum.photos/seed/act4/140/100',
+            'date'  => '07/09/2025',
+        ],
+    ],
+
         'news' => [
             ['title' => 'Báo cáo giá cả thị trường tháng 8/2025', 'date' => '07/09/2025'],
             ['title' => 'Hỗ trợ vay mua nhà: các điểm cần lưu ý', 'date' => '05/09/2025'],

@@ -5,249 +5,256 @@
   use Illuminate\Support\Facades\File;
 
   // HERO background
-  $heroUrl = File::exists(public_path('images/hero-big.jpg'))
-      ? asset('images/hero-big.jpg')
-      : (File::exists(public_path('images/placeholder-hero.jpg'))
-          ? asset('images/placeholder-hero.jpg')
+  $heroUrl = File::exists(public_path('image/banner.jpg'))
+      ? asset('image/banner.jpg')
+      : (File::exists(public_path('images/banner.jpg'))
+          ? asset('images/banner.jpg')
           : asset('images/placeholder-hero.svg'));
 
-  // APAC media
-  $apacVideo = File::exists(public_path('videos/apac.mp4')) ? asset('videos/apac.mp4') : null;
-  $apacMap   = File::exists(public_path('images/apac-map.jpg'))
-      ? asset('images/apac-map.jpg')
+  // APAC background map (1536x1024)
+  $apacMap = File::exists(public_path('image/world.png'))
+      ? asset('image/world.png')
       : 'https://images.unsplash.com/photo-1549693578-d683be217e58?q=80&w=2400&auto=format&fit=crop';
 
-  $pacificLogo  = File::exists(public_path('images/pacific-logo.png')) ? asset('images/pacific-logo.png') : null;
-  $pacificBadge = File::exists(public_path('images/pacific-badge.png')) ? asset('images/pacific-badge.png') : null;
+  // VPC logo
+  $vpcLogo = File::exists(public_path('image/VPC_web-300x198.jpg'))
+      ? asset('image/VPC_web-300x198.jpg')
+      : null;
+
+  $tiles = config('site.home.serviceTiles') ?? [];
+  $laws  = config('site.laws') ?? [];
+  $links = config('site.links') ?? [];
 @endphp
 
 <style>
   :root{
-    --header-h: var(--header-h,72px);
-    --dur: 2200ms;
-    --delay: 280ms;
-    --brand: #22c681;
-    --ink: #e8f3ee;
-    --ink-sub: #cfe9dd;
-    --bg-deep:#0b1e3a;
+    --header-h:72px;
+    --brand:#22c681;
   }
   html,body{scroll-behavior:smooth}
 
-  /* ===== HERO TO ===== */
-  .hero-full{
+  /* ================= HERO SLIDER ================= */
+  .hero-slider{position:relative; isolation:isolate;}
+  .hero-viewport{
+    position:relative; overflow:hidden;
     min-height:calc(100vh - var(--header-h));
-    background-size:cover;background-position:center;
-    position:relative;isolation:isolate;
   }
-  .hero-inner{height:100%;display:grid;place-items:center;text-align:center;color:#fff;text-shadow:0 6px 26px rgba(0,0,0,.32)}
-  .hero-title{font-weight:800;letter-spacing:.5px}
-  .scroll-cue{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);width:46px;height:46px;border-radius:999px;border:1px solid #ffffff66;color:#fff;background:transparent}
+  .hero-track{
+    display:flex; width:100%; height:100%;
+    transition:transform .55s cubic-bezier(.22,.8,.3,1);
+  }
+  .hero-slide{
+    position:relative; flex:0 0 100%; height:calc(100vh - var(--header-h));
+    display:flex; align-items:center; justify-content:center;
+    color:#fff; text-align:center; text-shadow:0 4px 18px rgba(0,0,0,.35);
+  }
+  .hero-bg{
+    position:absolute; inset:0; z-index:0;
+    background-position:center; background-size:cover; background-repeat:no-repeat;
+  }
+  .hero-overlay{position:absolute; inset:0; z-index:0; background:linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,.45))}
+  .hero-content{position:relative; z-index:1; padding:0 16px; max-width:1000px}
+  .hero-title{font-weight:900; font-size:clamp(40px,6vw,82px); letter-spacing:.3px}
+  .hero-sub{opacity:.95}
+
+  /* Slide 2: APAC focus */
+  .hero-bg.apac{
+    background-image:url('{{ $apacMap }}');
+    background-position:80% 55%; /* focus APAC theo 1536x1024 */
+    filter:brightness(.86) saturate(1.1);
+  }
+  .hero-overlay.apac{background:linear-gradient(180deg,rgba(0,0,0,.12),rgba(11,30,58,.65))}
+  .apac-logo{display:flex; justify-content:center; margin-bottom:14px}
+  .apac-logo img{width:150px; height:auto; object-fit:contain; border-radius:10px; box-shadow:0 6px 16px rgba(0,0,0,.28)}
+  .apac-kicker{
+    display:inline-block; margin-top:6px;
+    font-weight:800; letter-spacing:.12em; text-transform:uppercase;
+    color:#d7ffee; font-size:.86rem;
+    padding:6px 12px; border-radius:999px;
+    background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12);
+  }
+  .apac-title{margin:14px 0 12px; font-weight:900; line-height:1.12; color:#dff9ee; font-size:clamp(28px,3.2vw,46px)}
+  .apac-underline{width:120px; height:3px; border-radius:999px; margin:0 auto 16px; background:var(--brand)}
+  .apac-lead{color:#e6efe9cc; font-size:clamp(15px,1.3vw,19px); line-height:1.6; margin-bottom:20px}
+  .apac-badge{display:inline-flex; align-items:center; gap:10px; padding:10px 16px; border-radius:10px; background:#102a4d; border:1px solid #1b3c6f; color:#cfe9dd}
+  .apac-badge a{color:inherit; text-decoration:none}
+  .apac-badge a:hover{color:#fff; text-decoration:underline}
+
+  /* Controls */
+  .hero-nav{
+    position:absolute; top:50%; transform:translateY(-50%); z-index:3;
+    width:40px; height:40px; border-radius:999px; border:1px solid #ffffff66;
+    background:rgba(255,255,255,.1); color:#fff; display:grid; place-items:center;
+    backdrop-filter:blur(4px); transition:background .2s, transform .2s;
+  }
+  .hero-nav:hover{background:rgba(255,255,255,.18); transform:translateY(-50%) scale(1.06)}
+  .hero-nav.prev{left:14px}
+  .hero-nav.next{right:14px}
+
+  .hero-dots{position:absolute; bottom:16px; left:50%; transform:translateX(-50%); display:flex; gap:8px; z-index:3}
+  .hero-dots button{width:8px; height:8px; border-radius:999px; background:#ffffff55; border:0}
+  .hero-dots button[aria-current="true"]{background:#fff}
+
+  /* Scroll cue (đưa xuống service strip) */
+  .scroll-cue{
+    position:absolute; left:50%; bottom:62px; transform:translateX(-50%);
+    width:42px; height:42px; border-radius:50%; border:1px solid #fff9;
+    background:transparent; color:#fff; display:grid; place-items:center; z-index:3;
+  }
   .scroll-cue:hover{transform:translateX(-50%) translateY(-2px)}
 
-  /* ===== APAC SECTION (full viewport, snap dừng ở đây) ===== */
-  .apac-hero{
-    position:relative;isolation:isolate;
-    min-height:calc(100vh - var(--header-h));
-    background:var(--bg-deep);
-    overflow:hidden;
-    scroll-margin-top: var(--header-h); /* click mũi tên sẽ dừng đúng edge */
+  /* ================= Services strip ================= */
+  .services-grid{display:grid; gap:1rem; grid-template-columns:repeat(2,minmax(0,1fr))}
+  @media (min-width:576px){.services-grid{grid-template-columns:repeat(3,1fr)}}
+  @media (min-width:992px){.services-grid{grid-template-columns:repeat(4,1fr)}}
+  @media (min-width:1200px){.services-grid{grid-template-columns:repeat(5,1fr)}}
+  .service-card{
+    display:flex; gap:12px; align-items:flex-start;
+    border:1px solid #e9f0ea; border-radius:16px; background:#fff;
+    box-shadow:0 10px 26px rgba(17,68,43,.10);
+    padding:14px; text-decoration:none; color:#0f172a;
+    transition:transform .2s, box-shadow .2s, border-color .2s
   }
-  .apac-hero .video, .apac-hero .image{
-    position:absolute;inset:0;object-fit:cover;opacity:.85;
-    filter:contrast(1.06) saturate(1.06) brightness(.9);
-  }
-  .apac-hero .image{
-    width:160%;max-width:none;height:160%;
-    transform-origin:70% 35%;
-    animation: apacPan var(--dur) cubic-bezier(.25,.7,.2,1) forwards;
-  }
-  @keyframes apacPan {
-    0%  {transform:scale(1) translate(0,0)}
-    100%{transform:scale(1.8) translate(-12%, -6%)}
-  }
+  .service-card:hover{transform:translateY(-4px); box-shadow:0 16px 44px rgba(30,155,90,.14); border-color:#d7efe2}
+  .service-ico{flex:0 0 auto; border-radius:999px; background:#f2fbf6; padding:10px; display:grid; place-items:center; width:42px; height:42px}
+  .service-ico svg{width:20px; height:20px; color:#1e9b5a}
+  .service-title{font-weight:800}
+  .service-desc{color:#63726b; font-size:.92rem; line-height:1.35}
+  .list-group-item-action{ transition: transform .15s }
+  .list-group-item-action:hover{ transform: translateY(-2px) }
+  .list-group-item {
+  border: 0;
+  border-bottom: 1px solid #e9ecef;
+  padding: 12px 16px;
+  transition: background-color .15s, transform .15s;
+}
 
-  .apac-hero::after{content:'';position:absolute;inset:0;z-index:1;
-    background:radial-gradient(60% 60% at 70% 35%,transparent 0, rgba(11,30,58,.22) 55%, rgba(11,30,58,.55) 85%)}
+.list-group-item:hover {
+  background-color: #f8fdf9;
+  transform: translateY(-2px);
+}
 
-  .apac-hero .content{
-    position:relative;z-index:2;max-width:1100px;margin:0 auto;
-    padding:clamp(40px,6vw,72px) 20px 28px;text-align:center;color:var(--ink);
-  }
-  .apac-hero .logo-in{
-    width:52px;height:52px;border-radius:14px;background:#0f2750;border:1px solid #20427c;
-    display:inline-grid;place-items:center;margin-bottom:12px;
-    box-shadow:0 10px 30px #102a4d80;opacity:0;transform:translateY(6px) scale(.96);
-    animation: fadeUp .7s ease forwards; animation-delay: calc(var(--delay));
-  }
-  .apac-hero .kicker{
-    display:inline-flex;align-items:center;gap:8px;font-weight:700;letter-spacing:.08em;
-    color:#bfe7d0;text-transform:uppercase;font-size:.85rem;
-    background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);
-    padding:8px 12px;border-radius:999px;backdrop-filter:blur(4px);
-    opacity:0;transform:translateY(6px);
-    animation: fadeUp .7s ease forwards; animation-delay: calc(var(--delay) + 80ms);
-  }
-  .apac-hero h2{
-    margin:12px 0 8px;font-weight:800;line-height:1.08;
-    font-size:clamp(28px,3.8vw,46px);color:#c7f0d9;
-    opacity:0;transform:translateY(8px);
-    animation: fadeUp .8s ease forwards; animation-delay: calc(var(--delay) + 180ms);
-  }
-  .apac-hero .lead{
-    font-size:clamp(16px,2vw,20px);color:#e6efe9cc;
-    max-width:920px;margin:0 auto;
-    opacity:0;transform:translateY(10px);
-    animation: fadeUp .8s ease forwards; animation-delay: calc(var(--delay) + 360ms);
-  }
-  .apac-hero .underline{
-    width:0;height:3px;background:var(--brand);margin:12px auto;border-radius:999px;opacity:.95;
-    animation: lineGrow .9s ease forwards; animation-delay: calc(var(--delay) + 420ms);
-  }
-  @keyframes lineGrow{to{width:min(360px,42vw)}}
-  @keyframes fadeUp{to{opacity:1;transform:none}}
+.list-group-item img {
+  flex-shrink: 0;
+  width: 100px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
 
-  .apac-hero .badge{
-    display:inline-flex;align-items:center;gap:10px;margin-top:16px;padding:10px 14px;border-radius:12px;
-    background:#102a4d;border:1px solid #1b3c6f;color:#cfe9dd;
-    opacity:0;transform:translateY(10px) scale(.98);
-    animation: fadeUp .7s ease forwards; animation-delay: calc(var(--delay) + 560ms);
-  }
-  .apac-hero .badge img{width:22px;height:22px;object-fit:contain}
-  .apac-hero .badge a{color:#cfe9dd;text-decoration:none}
-  .apac-hero .badge a:hover{color:#fff;text-decoration:underline}
+.list-group-item .fw-bold {
+  font-weight: 700;
+  color: #0f172a;
+}
 
-  /* Pulsing dots */
-  .apac-dots{position:absolute;inset:0;z-index:2;pointer-events:none}
-  .apac-dot{position:absolute;width:10px;height:10px;background:var(--brand);border-radius:999px;
-    box-shadow:0 0 0 0 rgba(34,198,129,.7);animation:pulse 1800ms infinite;opacity:0;
-    animation-delay: calc(var(--delay) + 600ms);animation-fill-mode:forwards}
-  .apac-dot::after{content:'';position:absolute;inset:-6px;border:2px solid #22c68166;border-radius:50%;opacity:.8}
-  @keyframes pulse{0%{opacity:1;box-shadow:0 0 0 0 rgba(34,198,129,.55)}70%{box-shadow:0 0 0 14px rgba(34,198,129,0)}100%{box-shadow:0 0 0 0 rgba(34,198,129,0)}}
+.list-group-item .text-muted.small {
+  color: #6c757d !important;
+  line-height: 1.4;
+}
 
-  /* vị trí dots tương đối vùng Thái Bình Dương */
-  .dot-sg{left:58%; top:51%}
-  .dot-my{left:55%; top:49%}
-  .dot-hk{left:67.5%; top:40%}
-  .dot-vn{left:60.5%; top:44%}
-  .dot-th{left:58.7%; top:45%}
-  .dot-id{left:57%; top:56%}
-
-  @media (prefers-reduced-motion:reduce){
-    .apac-hero .image{animation:none;transform:scale(1.3) translate(-6%,-3%)}
-    .apac-hero .logo-in,.apac-hero .kicker,.apac-hero h2,.apac-hero .lead,.apac-hero .badge{animation:none;opacity:1;transform:none}
-    .apac-hero .underline{animation:none;width:min(360px,42vw)}
-    .apac-dot{animation:none;opacity:1}
-  }
-
-  /* ===== DỊCH VỤ NỔI BẬT (như cũ) ===== */
-  .services-grid{display:grid;gap:1rem;grid-template-columns:repeat(2,minmax(0,1fr))}
-  @media(min-width:576px){.services-grid{grid-template-columns:repeat(3,1fr)}}
-  @media(min-width:992px){.services-grid{grid-template-columns:repeat(4,1fr)}}
-  @media(min-width:1200px){.services-grid{grid-template-columns:repeat(5,1fr)}}
-  .service-card{display:flex;gap:12px;align-items:flex-start;border:1px solid #e9f0ea;border-radius:16px;background:#fff;box-shadow:var(--shadow);padding:14px;text-decoration:none;color:#0f172a;transition:transform .2s,box-shadow .2s,border-color .2s}
-  .service-card:hover{transform:translateY(-4px);box-shadow:0 16px 44px rgba(30,155,90,.14);border-color:#d7efe2}
-  .service-ico{flex:0 0 auto;border-radius:999px;background:#f2fbf6;padding:10px;display:grid;place-items:center;width:42px;height:42px}
-  .service-ico svg{width:20px;height:20px;color:#1e9b5a}
-  .service-title{font-weight:700}
-  .service-desc{color:#63726b;font-size:.92rem;line-height:1.35}
 </style>
 
-{{-- ===== 1) BANNER TO ===== --}}
-<section class="hero-full" style="background-image:url('{{ $heroUrl }}')">
-  <div class="hero-inner">
-    <div>
-      <h1 class="hero-title">VINAP</h1>
-      <p class="hero-sub">Chuyên Nghiệp – Minh Bạch – Chính Xác – Khách Quan</p>
-      <a href="#apac-hero" class="btn btn-success mt-3">Khám phá VINAP</a>
-    </div>
-  </div>
-  <button id="scrollCue" class="scroll-cue" aria-label="Cuộn xuống">
-    <svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-  </button>
-</section>
-
-{{-- ===== 2) APAC ANIMATION ===== --}}
-<section id="apac-hero" class="apac-hero" aria-label="VPC Asia Pacific coverage">
-  <div class="map-wrap" aria-hidden="true">
-    @if($apacVideo)
-      <video class="video" src="{{ $apacVideo }}" autoplay muted playsinline loop></video>
-    @endif
-    <img class="image" src="{{ $apacMap }}" alt="World map focusing to Asia Pacific">
-    <div class="apac-dots">
-      <span class="apac-dot dot-my"></span>
-      <span class="apac-dot dot-sg" style="animation-delay: calc(var(--delay) + 750ms)"></span>
-      <span class="apac-dot dot-hk" style="animation-delay: calc(var(--delay) + 900ms)"></span>
-      <span class="apac-dot dot-vn" style="animation-delay: calc(var(--delay) + 1050ms)"></span>
-      <span class="apac-dot dot-th" style="animation-delay: calc(var(--delay) + 1200ms)"></span>
-      <span class="apac-dot dot-id" style="animation-delay: calc(var(--delay) + 1350ms)"></span>
-    </div>
-  </div>
-  <div class="content">
-    <div class="logo-in">@if($pacificLogo)<img src="{{ $pacificLogo }}" alt="VPC">@endif</div>
-    <div class="kicker">VPC Pacific Asia</div>
-    <h2>Thành viên của Mạng lưới <span style="color:var(--brand)">VPC Asia Pacific</span></h2>
-    <div class="underline"></div>
-    <p class="lead">
-      VINAP là thành viên chính thức của <strong>VPC Asia Pacific Group</strong> — mạng lưới tư vấn và thẩm định giá quốc tế
-      với văn phòng tại <em>Malaysia, Singapore, Hong Kong, Vietnam, Thailand, Indonesia</em>…
-      <span class="d-block mt-1" style="color:var(--ink-sub); font-style:italic;">VINAP proudly represents Vietnam in the VPC Asia Pacific professional valuation network.</span>
-    </p>
-    <div class="badge">
-      @if($pacificBadge)<img src="{{ $pacificBadge }}" alt="vpc">@endif
-      <a href="http://www.vpcasiapacific.com/" target="_blank" rel="noopener">VPC Asia Pacific Coverage</a>
-    </div>
-  </div>
-</section>
-
-{{-- ===== 3) DỊCH VỤ NỔI BẬT ===== --}}
-<section id="info-start" class="container my-5" data-animate>
-  <div class="section-title mb-3">Dịch vụ nổi bật</div>
-  <div class="services-grid">
-    @php
-      $iconMap = ['thẩm định'=>'home','đấu giá'=>'briefcase','chuyển'=>'gear','tư vấn đầu tư'=>'chart','bđs'=>'chart','nghiên cứu'=>'map','thị trường'=>'map'];
-      $tiles = config('site.home.serviceTiles') ?? [];
-    @endphp
-    @foreach($tiles as $t)
-      @php
-        $title = $t['title'] ?? 'Dịch vụ'; $icon = 'home';
-        foreach($iconMap as $k=>$i){ if(mb_stripos($title,$k)!==false){ $icon=$i; break; } }
-      @endphp
-      <a href="#contact" class="service-card">
-        <div class="service-ico"><svg><use href="#icon-{{ $icon }}"/></svg></div>
-        <div>
-          <div class="service-title">{{ $title }}</div>
-          <div class="service-desc">{{ $t['desc'] ?? ($t['hint'] ?? 'Giải pháp nhanh, chuẩn, minh bạch') }}</div>
+{{-- ================= 1) HERO SLIDER (2 slides: VINAP + VPC/APAC) ================= --}}
+<section class="hero-slider" aria-label="VINAP hero slider">
+  <div class="hero-viewport" id="heroViewport">
+    <div class="hero-track" id="heroTrack">
+      {{-- Slide 1: VINAP --}}
+      <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="1 of 2">
+        <div class="hero-bg" style="background-image:url('{{ $heroUrl }}')"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <h1 class="hero-title">VINAP</h1>
+          <p class="hero-sub">Chuyên Nghiệp • Minh Bạch • Chính Xác • Khách Quan</p>
+          <a href="#info-start" class="btn btn-success mt-3">Khám phá dịch vụ</a>
         </div>
-      </a>
-    @endforeach
+      </div>
+
+      {{-- Slide 2: VPC/APAC --}}
+      <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="2 of 2">
+        <div class="hero-bg apac"></div>
+        <div class="hero-overlay apac"></div>
+        <div class="hero-content">
+          <div class="apac-logo">@if($vpcLogo)<img src="{{ $vpcLogo }}" alt="VPC Logo">@endif</div>
+          <div class="apac-kicker">VPC Pacific Asia</div>
+          <h2 class="apac-title">Thành viên của Mạng lưới <span style="color:var(--brand)">VPC Asia Pacific</span></h2>
+          <div class="apac-underline"></div>
+          <p class="apac-lead">
+            VINAP là thành viên chính thức của <strong>VPC Asia Pacific Group</strong> — mạng lưới tư vấn và thẩm định giá quốc tế
+            với văn phòng tại <em>Malaysia, Singapore, Hong Kong, Vietnam, Thailand, Indonesia</em>.<br>
+            <span style="color:#cfe9dd; font-style:italic">
+              VINAP proudly represents Vietnam in the VPC Asia Pacific professional valuation network.
+            </span>
+          </p>
+          <div class="apac-badge">
+            <a href="http://www.vpcasiapacific.com/" target="_blank" rel="noopener">VPC Asia Pacific Coverage</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {{-- Controls --}}
+    <button class="hero-nav prev" id="heroPrev" aria-label="Slide trước">
+      <svg viewBox="0 0 24 24" width="18" height="18"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <button class="hero-nav next" id="heroNext" aria-label="Slide sau">
+      <svg viewBox="0 0 24 24" width="18" height="18"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+
+    <div class="hero-dots" id="heroDots" role="tablist" aria-label="Slide indicators"></div>
+
+    {{-- Scroll cue xuống service strip --}}
+    <button id="scrollCue" class="scroll-cue" aria-label="Cuộn xuống">
+      <svg viewBox="0 0 24 24" fill="none" width="22" height="22"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
   </div>
 </section>
 
-{{-- ===== 4) HOẠT ĐỘNG + TIN TỨC + SIDEBAR ===== --}}
+{{-- ================= 2) DỊCH VỤ NỔI BẬT ================= --}}
+@include('partials.service-strip', [
+  'tiles' => config('site.home.serviceTiles')
+])
+
+{{-- ================= 3) HOẠT ĐỘNG + TIN TỨC + SIDEBAR ================= --}}
 <section class="container mb-5">
   <div class="row g-4">
     <div class="col-lg-8">
-      <div class="section-title mb-3" data-animate>Hoạt động công ty</div>
+      <div class="section-title mb-3">Hoạt động công ty</div>
+
+      @php
+        $actImg = function(array $a){
+            $fallback = asset('images/placeholder-thumb.svg');
+            $title = mb_strtoupper($a['title'] ?? '');
+            if (str_contains($title,'VĂN HÓA') && File::exists(public_path('image/xaydung.jpg'))) return asset('image/xaydung.jpg');
+            if (str_contains($title,'CHIẾN LƯỢC') && File::exists(public_path('image/chienluoc.jpg'))) return asset('image/chienluoc.jpg');
+            if (str_contains($title,'TẠO DỰNG') && File::exists(public_path('image/taodung.jpg'))) return asset('image/taodung.jpg');
+            if (str_contains($title,'THẮNG THẾ') && File::exists(public_path('image/thangthe.jpg'))) return asset('image/thangthe.jpg');
+            return $a['img'] ?? $fallback;
+        };
+      @endphp
+
       <div class="list-group mb-4">
-        @foreach(config('site.home.companyActivities') as $a)
-          <div class="list-group-item" data-animate>
-            <div class="d-flex gap-3">
-              <img src="{{ $a['img'] ?? '/images/placeholder-thumb.svg' }}" alt=""
-                   style="width:84px;height:64px;object-fit:cover;border-radius:10px">
+        @foreach((array) config('site.home.companyActivities') as $a)
+          @php
+            $img = $actImg($a);
+            $href = !empty($a['route']) ? route($a['route']) : ($a['url'] ?? '#');
+          @endphp
+          <a href="{{ $href }}" class="list-group-item list-group-item-action">
+            <div class="d-flex gap-3 align-items-start">
+              <img src="{{ $img }}" alt="" style="width:84px;height:64px;object-fit:cover;border-radius:10px">
               <div>
                 <div class="fw-bold">{{ $a['title'] }}</div>
-                <div class="text-muted small">{{ $a['desc'] }}</div>
+                <div class="text-muted small">{{ $a['desc'] ?? '' }}</div>
                 <div class="small text-muted mt-1">{{ $a['date'] ?? '' }}</div>
               </div>
             </div>
-          </div>
+          </a>
         @endforeach
       </div>
-
-      <div class="section-title mb-3" id="news" data-animate>Tin tức</div>
+      <div class="section-title mb-3" id="news">Tin tức</div>
       <div class="list-group">
         @foreach(config('site.home.news') as $n)
-          <div class="list-group-item d-flex justify-content-between align-items-center" data-animate>
+          <div class="list-group-item d-flex justify-content-between align-items-center">
             <span>{{ $n['title'] }}</span>
             <span class="text-muted small">{{ $n['date'] }}</span>
           </div>
@@ -256,38 +263,36 @@
     </div>
 
     <aside class="col-lg-4">
-      <div class="section-title mb-3" data-animate>Dịch vụ đã thực hiện</div>
-      @php $done = config('site.home.deliveredServices')[0] ?? null; @endphp
-      @if($done)
-      <div class="card-lite p-0 mb-4" data-animate>
-        <img src="{{ $done['img'] }}" alt="" class="w-100" style="height:220px;object-fit:cover">
-        <div class="p-3">{{ $done['caption'] }}</div>
-      </div>
-      @endif
+      <div class="sticky-top" style="top:calc(var(--header-h) + 20px);">
+        @php $sd = config('site.home.deliveredServices')[0] ?? null; @endphp
+        @include('partials.delivered-strip')
 
-      <div class="section-title mb-3" data-animate>Văn bản pháp luật</div>
-      <div class="card-lite p-3 mb-4" data-animate>
-        <ul class="list-unstyled m-0">
-          @foreach(config('site.laws') as $law)
-            <li class="mb-2">{{ $law }}</li>
-          @endforeach
-        </ul>
-      </div>
+        <div class="section-title mb-2" data-animate>Văn bản pháp luật</div>
+        <div class="card-lite p-3 mb-4" data-animate>
+          <ul class="list-unstyled m-0">
+            @foreach($laws as $law)
+              @php $label=is_array($law)?($law['label']??'Tài liệu'):$law; $href=is_array($law)?($law['href']??'#'):'#'; @endphp
+              <li class="mb-2"><a href="{{ $href }}" target="_blank" rel="noopener" class="text-decoration-none text-success">{{ $label }}</a></li>
+            @endforeach
+          </ul>
+        </div>
 
-      <div class="section-title mb-3" data-animate>Liên kết web</div>
-      <div class="card-lite p-3" data-animate>
-        <ul class="list-unstyled m-0">
-          @foreach(config('site.links') as $link)
-            <li class="mb-2"><a href="{{ $link['href'] }}" class="text-decoration-none" target="_blank" rel="noopener">{{ $link['label'] }}</a></li>
-          @endforeach
-        </ul>
+        <div class="section-title mb-2" data-animate>Liên kết web</div>
+        <div class="card-lite p-3" data-animate>
+          <ul class="list-unstyled m-0">
+            @foreach($links as $link)
+              @php $lLabel=$link['label']??'Link'; $lHref=$link['href']??'#'; @endphp
+              <li class="mb-2"><a href="{{ $lHref }}" class="text-decoration-none text-success" target="_blank" rel="noopener">{{ $lLabel }}</a></li>
+            @endforeach
+          </ul>
+        </div>
       </div>
     </aside>
   </div>
 </section>
 
-{{-- ===== 5) LIÊN HỆ ===== --}}
-<section id="contact" class="container mb-5" data-animate>
+{{-- ================= 4) LIÊN HỆ ================= --}}
+<section id="contact" class="container mb-5">
   <div class="section-title mb-3">Liên hệ VINAP</div>
   <div class="card-lite p-4">
     <div class="row g-3">
@@ -301,26 +306,61 @@
 </section>
 
 <script>
-  // Cuộn từ banner xuống APAC và khóa overshoot một nhịp
-  (function(){
-    const banner = document.querySelector('.hero-full');
-    const apac   = document.getElementById('apac-hero');
-    const cue    = document.getElementById('scrollCue');
+(function(){
+  // Slider state
+  const track = document.getElementById('heroTrack');
+  const dotsWrap = document.getElementById('heroDots');
+  const prev = document.getElementById('heroPrev');
+  const next = document.getElementById('heroNext');
+  const slides = [...track.children];
+  const N = slides.length;
+  let i = 0, timer = null, hover = false;
 
-    const goApac = ()=>{
-      apac.scrollIntoView({behavior:'smooth', block:'start'});
-      const stop = e => e.preventDefault();
-      window.addEventListener('wheel', stop, {passive:false});
-      setTimeout(()=>window.removeEventListener('wheel', stop), 700);
-    };
+  // build dots
+  for(let k=0;k<N;k++){
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.addEventListener('click', ()=> set(k));
+    dotsWrap.appendChild(b);
+  }
 
-    cue?.addEventListener('click', e => { e.preventDefault(); goApac(); });
-    banner?.addEventListener('wheel', e=>{
-      if(e.deltaY>0){ e.preventDefault(); goApac(); }
-    }, {passive:false});
-    banner?.addEventListener('keydown', e=>{
-      if(['PageDown',' ','Spacebar','ArrowDown'].includes(e.key)){ e.preventDefault(); goApac(); }
-    });
-  })();
+  function set(idx){
+    i = (idx + N) % N;
+    track.style.transform = `translateX(${-i*100}%)`;
+    [...dotsWrap.children].forEach((b,k)=> b.setAttribute('aria-current', k===i ? 'true':'false'));
+  }
+
+  const step = d => set(i + d);
+  prev.addEventListener('click', ()=> step(-1));
+  next.addEventListener('click', ()=> step(1));
+
+  // autoplay
+  const play = ()=> timer = setInterval(()=> { if(!hover) step(1); }, 5000);
+  const stop = ()=> { if(timer) clearInterval(timer); timer = null; };
+  const viewport = document.getElementById('heroViewport');
+  viewport.addEventListener('mouseenter', ()=> hover = true);
+  viewport.addEventListener('mouseleave', ()=> hover = false);
+  document.addEventListener('visibilitychange', ()=> document.hidden ? stop() : play());
+
+  // swipe
+  let sx = null;
+  viewport.addEventListener('touchstart', e=> sx = e.touches[0].clientX, {passive:true});
+  viewport.addEventListener('touchend', e=>{
+    if(sx===null) return;
+    const dx = e.changedTouches[0].clientX - sx;
+    if(Math.abs(dx) > 40) step(dx<0 ? 1 : -1);
+    sx = null;
+  }, {passive:true});
+
+  set(0); play();
+
+  // scroll cue -> service strip
+  const cue = document.getElementById('scrollCue');
+  const target = document.getElementById('info-start');
+  cue?.addEventListener('click', e => {
+    e.preventDefault();
+    target?.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+})();
 </script>
 @endsection
