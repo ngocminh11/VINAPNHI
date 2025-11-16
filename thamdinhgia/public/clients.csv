@@ -1,0 +1,141 @@
+group,vn,en,logo
+state,Sở Tài Chính Thành Phố Hồ Chí Minh,Department of Finance Ho Chi Minh City,so-tai-chinh-tp-hcm
+state,Sở Tài Chính Tỉnh Bình Dương,Department of Finance Binh Duong,so-tai-chinh-binh-duong
+state,Sở Tài Chính Tỉnh Bình Phước,Department of Finance Binh Phuoc,so-tai-chinh-binh-phuoc
+state,Sở Tài Nguyên và Môi Trường Thành Phố Hồ Chí Minh,Ho Chi Minh City Department of Natural Resources and Environment,so-tnmt-tp-hcm
+state,Sở Tài Nguyên và Môi Trường Tỉnh Kiên Giang,Kien Giang Department of Natural Resources and Environment,so-tnmt-kien-giang
+state,Sở Tài Nguyên và Môi Trường Tỉnh Bà Rịa – Vũng Tàu,Ba Ria Vung Tau Department of Natural Resources and Environment,so-tnmt-brvt
+state,Sở Khoa Học Công Nghệ Thành Phố Hồ Chí Minh,Ho Chi Minh City Department of Science and Technology,so-khcn-tp-hcm
+state,Sở Tài Nguyên và Môi Trường Tỉnh Long An,Long An Department of Natural Resources and Environment,so-tnmt-long-an
+state,Sở Khoa Học và Công Nghệ Tỉnh Đồng Nai,Dong Nai Department of Science and Technology,so-khcn-dong-nai
+state,Sở Giáo Dục Và Đào Tạo Tỉnh Kiên Giang,Kien Giang Department of Education and Training,so-gddt-kien-giang
+state,Sở Tài Nguyên Và Môi Trường Tỉnh Đồng Tháp,Dong Thap Department of Natural Resources and Environment,so-tnmt-dong-thap
+state,Cục Thi Hành Án Dân Sự Thành Phố Hồ Chí Minh,Civil Judgment Enforcement in Ho Chi Minh City,thads-tp-hcm
+state,Cục Điều Tra Chống Buôn Lậu - Tổng Cục Hải Quan,Anti-Smuggling and Investigation Department,cuc-dieu-tra-chong-buon-lau
+state,Cục Thuế Tỉnh Trà Vinh,Department of Taxation in Tra Vinh Province,cuc-thue-tra-vinh
+state,Cục Cảnh Sát Điều Tra Tội Phạm Về Kinh Tế Và Tham Nhũng,Police Department for Economic Crime Investigation and Corruption,cuc-csdt-kinh-te-tham-nhung
+state,Chi Cục Quản Lý Đất Đai Tỉnh Bà Rịa - Vũng Tàu,Land Management Sub-Department BRVT,chi-cuc-ql-dat-dai-brvt
+state,Bộ Tư Lệnh Cảnh Sát Biển Vùng 4,Vietnam Coast Guard Region 4,csg-vung-4
+state,Bộ Chỉ Huy Bộ Đội Biên Phòng Tỉnh Long An,Long An Border Guard,bdbp-long-an
+state,Trung Tâm Nước Sạch Và Vệ Sinh Môi Trường Nông Thôn Tỉnh Kiên Giang,Center for Water and Rural Environment Sanitation Kien Giang,trung-tam-nuoc-sach-kg
+state,Trung Tâm Dữ Liệu Quốc Gia II,National Data Center II,tt-du-lieu-quoc-gia-ii
+state,Trung Tâm Khuyến Nông Tỉnh Kiên Giang,Kien Giang Agricultural Extension,khuyen-nong-kg
+state,Chi Nhánh Trung Tâm Phát Triển Quỹ Đất Thị Xã Kiến Tường Long An,Land Development Center Kien Tuong,ptqd-kien-tuong
+state,Ban Quản Lý Đầu Tư Xây Dựng Thành Phố Rạch Giá,Investment Construction Management Unit Rach Gia,bql-rach-gia
+state,Phòng Tài Chính - Kế Hoạch Quận 11,Finance Planning Division District 11,tc-kh-quan-11
+state,Phòng Tài Chính Kế Hoạch Huyện Phú Quốc,Finance Planning Division Phu Quoc,tc-kh-phu-quoc
+state,Phòng Tài Chính Kế Hoạch Xã Kiến Tường Long An,Finance Planning Division Kien Tuong,tc-kh-kien-tuong
+state,Phòng Cảnh Sát Kinh Tế,Economic Police Department,phong-cs-kinh-te
+state,Phòng Tài Chính Kế Hoạch Huyện Hóc Môn,Hoc Mon District Financial Planning Department,tc-kh-hoc-mon
+state,Phòng Giáo Dục Và Đào Tạo Huyện Châu Đức,Chau Duc Department of Education and Training,gddt-chau-duc
+state,Phòng Nội Vụ Huyện Đầm Dơi,Department of Internal Affairs of Dam Doi District,noi-vu-dam-doi
+state,Phòng Nội Vụ Huyện Phú Tân,Department of Internal Affairs of Phu Tan District,noi-vu-phu-tan
+state,Phòng Tài Nguyên và Môi Trường Thị Xã Tân Châu,Department of Natural Resources and Environment of Tan Chau Town,tnmt-tan-chau
+state,Phòng Kinh Tế Hạ Tầng Huyện Châu Đức,Department of Economic Infrastructure Chau Duc,kinh-te-ht-chau-duc
+state,Phòng Nông Nghiệp và PTNT Huyện Châu Thành,Department of Agriculture and Rural Development Chau Thanh,nn-ptnt-chau-thanh
+state,Phòng GD và ĐT Thành phố Rạch Giá,Rach Gia City Department of Education and Training,gddt-rach-gia
+state,Phòng Tài Nguyên và Môi Trường Thị Xã Phú Mỹ,Department of Natural Resources and Environment of Phu My Town,tnmt-phu-my
+state,Đội Kiểm Soát Chống Buôn Lậu KV Miền Nam - Tổng Cục Hải Quan,Southern Anti-Smuggling Team - General Department of Customs,doi-ks-chong-buon-lau
+state,Ban Bồi Thường Giải Phóng Mặt Bằng Quận 1,Land Clearance Compensation Board District 1,btgpmg-quan-1
+state,Ban Bồi Thường Giải Phóng Mặt Bằng Huyện Bình Chánh,Land Clearance Compensation Board Binh Chanh,btgpmg-binh-chanh
+state,Vườn Quốc Gia U Minh Thượng Tỉnh Kiên Giang,U Minh Thuong National Park,vqg-uminh-thuong
+state,Hội Đồng Định Giá Tài Sản Tố Tụng Hình Sự Thành Phố,Asset Valuation Council Criminal Procedure HCMC,hd-dinh-gia-tp
+state,Công An Huyện Châu Đức,Police of Chau Duc District,ca-chau-duc
+state,Công An Huyện Châu Thành Tỉnh Tây Ninh,Police of Chau Thanh District Tay Ninh,ca-chau-thanh-tn
+state,Công An Tỉnh Vĩnh Long,Police of Vinh Long Province,ca-vinh-long
+state,Văn Phòng Tỉnh Ủy Sóc Trăng,Soc Trang Provincial Party Committee Office,vp-tinh-uy-soc-trang
+state,Tòa Án Nhân Dân Tỉnh Bà Rịa Vũng Tàu,People's Court of Ba Ria Vung Tau,toa-an-brvt
+state,Ủy Ban Nhân Dân Xã Kim Long,People's Committee of Kim Long Commune,ubnd-kim-long
+state,Ủy Ban Nhân Dân Xã Suối Rao,People's Committee of Suoi Rao Commune,ubnd-suoi-rao
+state,Đài Phát Thanh và Truyền Hình Kiên Giang,Kien Giang Radio Television Station,dai-ptth-kien-giang
+state,Thanh Tra Thị Xã Tân Châu,Inspection Office Tan Chau,thanh-tra-tan-chau
+state,Trung Tâm Đo Đạc Bản Đồ - Sở TNMT HCMC,Mapping Center DONRE HCMC,do-dac-ban-do-hcm
+state,Trung Tâm Kỹ Thuật TNMT Tỉnh Bà Rịa – Vũng Tàu,Technical Center DONRE BRVT,ky-thuat-tnmt-brvt
+state,Bệnh Viện Quận 1,District 1 Hospital,benh-vien-quan-1
+state,Bệnh Viện Đa Khoa Tỉnh Kiên Giang,General Hospital of Kien Giang,benh-vien-kg
+state,Bệnh Viện Đa Khoa Bưu Điện,Buu Dien General Hospital,benh-vien-buu-dien
+
+banks,Ngân Hàng TMCP Công Thương Việt Nam,VietinBank,vietinbank
+banks,Ngân Hàng Bangkok Đại Chúng Trách Nhiệm Hữu Hạn,Bangkok Bank,bangkok-bank
+banks,Ngân Hàng Nông Nghiệp Và Phát Triển Nông Thôn Việt Nam,Agribank,agribank
+banks,Ngân Hàng TMCP Đầu Tư Và Phát Triển Việt Nam,BIDV,bidv
+banks,Ngân Hàng TMCP Nam Á,Nam A Bank,nam-a-bank
+banks,Ngân Hàng TMCP Bản Việt,Viet Capital Bank,ban-viet-bank
+banks,Quỹ Tín Dụng Nhân Dân Đồng Sài Gòn,Dong Sai Gon People’s Credit Fund,pcf-dong-sai-gon
+
+corp,Công Ty Đầu Tư Tài Chính Nhà Nước TP Hồ Chí Minh,HCMC Finance Investment State-Owned Company,hdif
+corp,Công Ty Cổ Phần Dịch Vụ Hàng Không Sân Bay Tân Sơn Nhất,Southern Airports Services JSC,sasco
+corp,Công Ty TNHH MTV Dịch Vụ Công Ích Quận 4,District 4 Public Services Company Limited,cong-ich-q4
+corp,Tổng Công Ty Địa Ốc Sài Gòn TNHH MTV,Sai Gon Real Estate Corporation,sai-gon-real
+corp,Tổng Công Ty Thủy Sản Việt Nam – CTCP,Viet Nam Seaproducts JSC,vietsea
+corp,Công Ty Cổ Phần Đầu Tư Và Phát Triển BĐS An Gia,An Gia Real Estate Investment JSC,an-gia
+corp,Công Ty TNHH Gotec Việt Nam,Gotec Viet Nam Co Ltd,gotec
+corp,Công Ty Cổ Phần Địa Ốc Sài Gòn Thương Tín,Sacomreal,sacomreal
+corp,Công Ty Cổ Phần Đầu Tư Xây Dựng Long An Idico,Long An Idico JSC,long-an-idico
+corp,Công Ty TNHH MTV Dầu Khí Thành Phố Hồ Chí Minh,Saigon Petro Co Ltd,saigon-petro
+corp,Công Ty Cổ Phần Tập Đoàn Hoàng Gia Việt Nam,Vietnam Royal Investment Group JSC,hoang-gia
+corp,Công Ty Cổ Phần Dịch Vụ Tổng Hợp Sài Gòn Savico,Savico,savico
+corp,Công Ty Cổ Phần Đầu Tư Kiến Vàng,Kien Vang JSC,kien-vang
+corp,Công Ty Cổ Phần Tập Đoàn Tân Thành Đô,Tan Thanh Do Group,tan-thanh-do
+corp,Công Ty Cổ Phần BĐS Sài Gòn Vina,Saigon Vina Land JSC,saigon-vina
+corp,Công Ty Cổ Phần Greenhill Village,Greenhill Village JSC,greenhill
+corp,Công Ty TNHH Asia Packaging Industries Việt Nam,Asia Packaging Industries Vietnam,asia-packaging
+corp,Công Ty Cổ Phần Đầu Tư Thủ Thiêm,Thu Thiem Investment JSC,thu-thiem
+corp,Công Ty Cổ Phần Tập Đoàn Thiên Hưng,Thien Hung Investment Group,tap-doan-thien-hung
+corp,Công Ty Cổ Phần Khách Sạn Đầu Tư Kim Sơn,Kim Son Investment Hotel JSC,kim-son
+corp,Công Ty TNHH Quốc Tế Cao Nguyên Xanh,Green Highland International Co Ltd,cao-nguyen-xanh
+corp,Công Ty Cổ Phần Minh Long,DVTM Minh Long JSC,minh-long
+corp,Công Ty Cổ Phần Cơ Điện Hợp Nhất,Hop Nhat Mechanical Electrical JSC,hop-nhat
+corp,Công Ty TNHH Thép Trường Thịnh,Truong Thinh Steel Co Ltd,thep-truong-thinh
+corp,Công Ty Cổ Phần Visa Toàn Cầu,24H Visa Global Consultant Co Ltd,visa-24h
+corp,Công Ty TNHH Điện Tử Dlg Ansen,Dlg Ansen Electronics Co Ltd,dlg-ansen
+corp,Công Ty Luật TNHH MTV Hoàng Thu,Hoang Thu Law Company,luat-hoang-thu
+corp,Công Ty TNHH Mỹ Phúc,My Phuc Company Limited,my-phuc
+corp,Công Ty TNHH Giấy Tín Thịnh Phát,Tin Thinh Phat Paper Co Ltd,tin-thinh-phat
+corp,Công Ty TNHH Kỹ Thuật An Toàn Môi Trường Hòa Phát,Hoa Phat Environment Safety Technology Co Ltd,hoa-phat-env
+corp,Công Ty Cổ Phần Thế Kỷ 21,Century 21 JSC,the-ky-21
+corp,Công Ty CN Hóa Chất Mỏ Nam Bộ Micco,Micco South Chemical Industry,hoa-chat-mo-nam-bo
+corp,Công Ty Cổ Phần Kim Vi,Kim Vi Stainless Steel JSC,kim-vi
+corp,Công Ty TNHH Liên Kết Kỹ Thuật Thiên Hòa Ow,Thien Hoa Ow Tech Engineering Co Ltd,thien-hoa
+corp,Công Ty Cổ Phần Hưng Long,Minh Hung Long Group,hung-long
+corp,Công Ty Cổ Phần Cấp Nước Trung An,Trung An Water Supply JSC,trung-an
+corp,Công Ty Cổ Phần Vận Tải Bộ Tân Cảng,Tan Cang Transport JSC,tan-cang
+corp,Công Ty Cổ Phần Đầu Tư BĐS Thiên Minh,Thien Minh Real Estate JSC,thien-minh
+corp,Công Ty Cổ Phần Hadico,Hadico JSC,hadico
+corp,Công Ty TNHH Lawnyard Việt Nam,Lawnyard Vietnam Co Ltd,lawnyard
+corp,Công Ty Cổ Phần Thực Phẩm Sun Do,Sun Do Food JSC,sun-do
+corp,Công Ty Cổ Phần Minh Phương Logistics,Minh Phuong Logistics Corp,minh-phuong
+corp,Công Ty Cổ Phần Cơ Khí Điện Lữ Gia,Lu Gia Mechanical Electric JSC,lu-gia
+corp,Công Ty Cổ Phần Bao Bì Đại Hoàng Hà,Dai Hoang Ha Packing Corp,dai-hoang-ha
+corp,Công Ty Cổ Phần Giấy Minh Hưng,Minh Hung Paper JSC,minh-hung
+corp,Công Ty Cổ Phần Tư Vấn PMI,PMI Consulting JSC,pmi
+corp,Công Ty Cổ Phần Công Nghiệp Thực Phẩm Thabico,Thabico Food Industry JSC,thabico
+corp,Công Ty TNHH SX TM DV XNK Thuận Lợi,Thuan Loi Manufacturing Trading Service Import Export Co Ltd,thuan-loi
+corp,Công Ty Cổ Phần Minh Khôi,Minh Khoi JSC,minh-khoi
+corp,Công Ty Cổ Phần Liwayway Việt Nam,Liwayway Vietnam JSC,liwayway
+corp,Công Ty Cổ Phần Đồ Hộp Tân Phát,Tan Phat Foods Corp,tan-phat
+corp,Công Ty Cổ Phần Charm Empire,Charm Empire Corp,charm-empire
+corp,Công Ty Cổ Phần Phúc Thịnh,Phuc Thinh Investment JSC,phuc-thinh
+corp,Công Ty Cổ Phần Sài Gòn One Tower,Sai Gon One Tower Corp,saigon-one-tower
+corp,Công Ty TNHH An Nhựt Tân Long An,An Nhut Tan Long An Co Ltd,an-nhut-tan-long-an
+corp,Công Ty Cổ Phần Đầu Tư ADT Việt Nam,ADT Investment JSC,adt-vn
+corp,Công Ty Cổ Phần Phát Triển Dự Án Long An,Long An Project Development Corp,long-an-project
+corp,Công Ty Cổ Phần Đầu Tư Times Square Việt Nam,Times Square Investment JSC,times-square
+corp,Công Ty Cổ Phần Đầu Tư Toàn Cầu,Global Investment JSC,global-invest
+corp,Công Ty Cổ Phần Tập Đoàn Đại Cường,Dai Cuong Group JSC,dai-cuong
+corp,Công Ty TNHH TM DV Palace,Palace Service Trading Co Ltd,palace
+corp,Công Ty TNHH Asiana Paramount,Asiana Paramount Co Ltd,asiana-paramount
+corp,Công Ty Cổ Phần Hoàn Cầu Nha Trang,Hoan Cau Nha Trang JSC,hoan-cau
+corp,Công Ty TNHH XNK Lương Thực Đại Phát,Dai Phat Foods Import Export Co Ltd,dai-phat
+corp,Công Ty TNHH Alpha Petroleum,Alpha Petroleum Co Ltd,alpha-petroleum
+corp,Công Ty TNHH Lê Gia Import Export Trading Investment,Le Gia Import Export Co Ltd,le-gia
+corp,Công Ty Tnhh Cbt Steel,Cbt Steel Company Limited
+corp,Công Ty Tnhh Thương Mại - Xây Dựng Thành Ký,Thanh Ky Trading. Construction Co.Ltd
+corp,Công Ty Tnhh Kỹ Thuật Cơ Điện M.E.T,M.E.T Mechanical Electrical Technology Company Limited
+corp,Công Ty Cổ Phần Giải Pháp Đầu Tư Và Công Nghệ Bình Minh,Binh Minh Solution Of Investment And Technology Joint Stock Company
+corp,Công Ty Tnhh Mtv Xăng Dầu Lê Dũng,Le Dung Petroleum Single-member Limited Liability Company
+corp,Công Ty Tnhh Thương Mại Vận Tải Minh Tiến,Minh Tien Transport Trading And Construction Investment Company Limited
+corp,Công Ty Tnhh Đồ Nội Thất Thông Minh,Smart Furniture Limited Company
+corp,Công Ty Trách Nhiệm Hữu Hạn Thiên Vĩnh Trường,Thien Vinh Truong Limited Liability Company
+corp,Công Ty Cổ Phần Thương Mại Sản Xuất Xây Dựng Hoàng Minh,Hoang Minh Trading Manufacture Construction Joint Stock Company
+corp,Công Ty Tnhh Xăng Dầu Nam Khang,Nam Khang Petroleum Company Limited

@@ -613,5 +613,9 @@ return [
         ],
     ],
 ],
-
+'clients' => [
+    'state' => [],
+    'banks' => [],
+    'corp'  => [],
+  ],
 ];

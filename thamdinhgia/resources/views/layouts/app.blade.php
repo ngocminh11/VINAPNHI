@@ -194,12 +194,13 @@
 <header id="header" class="hdr">
   <div class="container py-2 d-flex align-items-center justify-content-between">
     <a href="/" class="brand-wrap">
-      <span class="brand-mark" aria-hidden="true"></span>
+      <img src="{{ asset('image/logo.png') }}" alt="VINAP Logo" style="height:44px;width:auto;object-fit:contain;">
       <span>
         <div class="brand-name">VINAP</div>
         <div class="brand-tag">Chuyên Nghiệp - Minh Bạch - Chính Xác - Khách Quan</div>
       </span>
     </a>
+
 
     <nav class="navdesk">
       @foreach(config('site.nav') as $item)

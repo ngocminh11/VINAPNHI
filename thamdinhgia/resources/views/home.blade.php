@@ -166,7 +166,6 @@
         <div class="hero-content">
           <h1 class="hero-title">VINAP</h1>
           <p class="hero-sub">Chuyên Nghiệp • Minh Bạch • Chính Xác • Khách Quan</p>
-          <a href="#info-start" class="btn btn-success mt-3">Khám phá dịch vụ</a>
         </div>
       </div>
 

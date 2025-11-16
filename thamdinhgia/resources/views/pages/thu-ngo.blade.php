@@ -51,11 +51,6 @@
     <svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
   </button>
 </section>
-
-<div class="mb-4">
-  @include('partials.delivered-strip')
-</div>
-
 <section class="container mb-5">
   <div class="row g-4">
     <div class="col-lg-8">
